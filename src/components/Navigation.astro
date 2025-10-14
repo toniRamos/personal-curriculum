@@ -41,12 +41,42 @@ const t = useTranslations(lang);
 	</div>
 
 	<!-- Mobile menu button -->
-	<div class="mobile-menu-toggle">
+	<div class="mobile-menu-toggle" id="mobile-menu-toggle">
 		<span></span>
 		<span></span>
 		<span></span>
 	</div>
 </nav>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobile-menu">
+	<div class="mobile-menu-content">
+		<div class="mobile-nav-links">
+			<a href="#about" class="mobile-nav-link">
+				<span class="nav-number">01.</span>
+				{t('nav.about')}
+			</a>
+			<a href="#experience" class="mobile-nav-link">
+				<span class="nav-number">02.</span>
+				{t('nav.experience')}
+			</a>
+			<a href="#projects" class="mobile-nav-link">
+				<span class="nav-number">03.</span>
+				{t('nav.projects')}
+			</a>
+			<a href="#contact" class="mobile-nav-link">
+				<span class="nav-number">04.</span>
+				{t('nav.contact')}
+			</a>
+		</div>
+		<div class="mobile-language-selector">
+			<select id="mobile-language-select" class="mobile-language-select">
+				<option value="es" selected={lang === 'es'}>ES</option>
+				<option value="en" selected={lang === 'en'}>EN</option>
+			</select>
+		</div>
+	</div>
+</div>
 
 <style>
 	.navbar {
@@ -185,6 +215,100 @@ const t = useTranslations(lang);
 		transition: all 0.3s ease;
 	}
 
+	.mobile-menu-toggle.active span:nth-child(1) {
+		transform: rotate(45deg) translate(5px, 5px);
+	}
+
+	.mobile-menu-toggle.active span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.mobile-menu-toggle.active span:nth-child(3) {
+		transform: rotate(-45deg) translate(7px, -6px);
+	}
+
+	.mobile-menu {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 100%;
+		height: 100vh;
+		background-color: rgba(15, 23, 42, 0.98);
+		backdrop-filter: blur(10px);
+		transition: right 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+		z-index: 999;
+		display: none;
+	}
+
+	.mobile-menu.active {
+		right: 0;
+	}
+
+	.mobile-menu-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		padding: 50px;
+	}
+
+	.mobile-nav-links {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		text-align: center;
+		margin-bottom: 40px;
+	}
+
+	.mobile-nav-link {
+		color: #cbd5e1;
+		font-size: 18px;
+		font-weight: 400;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		text-decoration: none;
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+		padding: 10px 0;
+	}
+
+	.mobile-nav-link:hover {
+		color: #64ffda;
+	}
+
+	.mobile-nav-link .nav-number {
+		color: #64ffda;
+		font-size: 16px;
+		display: block;
+		margin-bottom: 5px;
+	}
+
+	.mobile-language-selector {
+		margin-top: 20px;
+	}
+
+	.mobile-language-select {
+		background: transparent;
+		border: 1px solid #64ffda;
+		border-radius: 4px;
+		color: #64ffda;
+		padding: 12px 16px;
+		font-size: 16px;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		cursor: pointer;
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%2364ffda' viewBox='0 0 16 16'%3e%3cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3e%3c/svg%3e");
+		background-repeat: no-repeat;
+		background-position: right 12px center;
+		background-size: 12px;
+		padding-right: 40px;
+	}
+
+	.mobile-language-select:hover {
+		background-color: rgba(100, 255, 218, 0.1);
+	}
+
 	@media (max-width: 768px) {
 		.navbar {
 			padding: 0 25px;
@@ -196,6 +320,10 @@ const t = useTranslations(lang);
 
 		.mobile-menu-toggle {
 			display: flex;
+		}
+
+		.mobile-menu {
+			display: block;
 		}
 	}
 </style>
@@ -233,6 +361,35 @@ const t = useTranslations(lang);
 
 	// Language selector functionality
 	const languageSelect = document.getElementById('languageSelect');
+	const mobileLanguageSelect = document.getElementById('mobile-language-select');
+	
+	function handleLanguageChange(selectedLang) {
+		const currentPath = window.location.pathname;
+		
+		if (selectedLang === 'en') {
+			// Navigate to English version
+			if (currentPath === '/') {
+				window.location.href = '/en/';
+			} else if (currentPath.startsWith('/en')) {
+				// Already in English, do nothing
+				return;
+			} else {
+				window.location.href = '/en' + currentPath;
+			}
+		} else {
+			// Navigate to Spanish version (default)
+			if (currentPath.startsWith('/en/')) {
+				const newPath = currentPath.replace('/en/', '/');
+				window.location.href = newPath === '/' ? '/' : newPath;
+			} else if (currentPath === '/en') {
+				window.location.href = '/';
+			} else {
+				// Already in Spanish, do nothing
+				return;
+			}
+		}
+	}
+
 	if (languageSelect) {
 		// Set initial value based on current URL
 		const currentPath = window.location.pathname;
@@ -240,29 +397,63 @@ const t = useTranslations(lang);
 		languageSelect.value = isEnglish ? 'en' : 'es';
 		
 		languageSelect.addEventListener('change', function(e) {
-			const selectedLang = e.target.value;
+			handleLanguageChange(e.target.value);
+		});
+	}
+
+	if (mobileLanguageSelect) {
+		// Set initial value based on current URL
+		const currentPath = window.location.pathname;
+		const isEnglish = currentPath.startsWith('/en');
+		mobileLanguageSelect.value = isEnglish ? 'en' : 'es';
+		
+		mobileLanguageSelect.addEventListener('change', function(e) {
+			handleLanguageChange(e.target.value);
+		});
+	}
+
+	// Mobile menu functionality  
+	const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+	
+	if (mobileMenuToggle && mobileMenu) {
+		mobileMenuToggle.addEventListener('click', function() {
+			mobileMenuToggle.classList.toggle('active');
+			mobileMenu.classList.toggle('active');
 			
-			if (selectedLang === 'en') {
-				// Navigate to English version
-				if (currentPath === '/') {
-					window.location.href = '/en/';
-				} else if (currentPath.startsWith('/en')) {
-					// Already in English, do nothing
-					return;
-				} else {
-					window.location.href = '/en' + currentPath;
-				}
+			// Prevent body scroll when menu is open
+			if (mobileMenu.classList.contains('active')) {
+				document.body.style.overflow = 'hidden';
 			} else {
-				// Navigate to Spanish version (default)
-				if (currentPath.startsWith('/en/')) {
-					const newPath = currentPath.replace('/en/', '/');
-					window.location.href = newPath === '/' ? '/' : newPath;
-				} else if (currentPath === '/en') {
-					window.location.href = '/';
-				} else {
-					// Already in Spanish, do nothing
-					return;
-				}
+				document.body.style.overflow = 'auto';
+			}
+		});
+
+		// Close menu when clicking on navigation links
+		mobileNavLinks.forEach(link => {
+			link.addEventListener('click', function() {
+				mobileMenuToggle.classList.remove('active');
+				mobileMenu.classList.remove('active');
+				document.body.style.overflow = 'auto';
+			});
+		});
+
+		// Close menu when clicking outside
+		mobileMenu.addEventListener('click', function(e) {
+			if (e.target === mobileMenu) {
+				mobileMenuToggle.classList.remove('active');
+				mobileMenu.classList.remove('active');
+				document.body.style.overflow = 'auto';
+			}
+		});
+
+		// Close menu on escape key
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+				mobileMenuToggle.classList.remove('active');
+				mobileMenu.classList.remove('active');
+				document.body.style.overflow = 'auto';
 			}
 		});
 	}
