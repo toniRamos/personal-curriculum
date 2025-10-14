@@ -3,11 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import Navigation from '../../components/Navigation.astro';
 import Social from '../../components/Social.astro';
 import Loader from '../../components/Loader.astro';
-import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/ui';
 import { siteConfig } from '../../config/site';
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations('en');
 ---
 
 <Layout title={siteConfig.title}>
@@ -79,7 +78,7 @@ const t = useTranslations(lang);
 				<div class="about-image">
 					<div class="image-wrapper">
 						<div class="placeholder-image">
-							<span>Foto de Perfil</span>
+							<span>Profile Photo</span>
 						</div>
 					</div>
 				</div>
@@ -141,9 +140,8 @@ const t = useTranslations(lang);
 						</h3>
 						<div class="project-description">
 							<p>
-								Una aplicación web para visualizar datos personalizados de Spotify. Ve tus 
-								artistas principales, pistas principales, pistas reproducidas recientemente 
-								e información detallada sobre cada pista.
+								A web application for visualizing personalized Spotify data. View your 
+								top artists, top tracks, recently played tracks and detailed information about each track.
 							</p>
 						</div>
 						<ul class="project-tech">
@@ -155,7 +153,7 @@ const t = useTranslations(lang);
 					</div>
 					<div class="project-image">
 						<div class="placeholder-project">
-							<span>Imagen del Proyecto</span>
+							<span>Project Image</span>
 						</div>
 					</div>
 				</div>
@@ -168,8 +166,8 @@ const t = useTranslations(lang);
 						</h3>
 						<div class="project-description">
 							<p>
-								Plataforma de comercio electrónico completa con carrito de compras, 
-								procesamiento de pagos, gestión de inventario y panel de administración.
+								Complete e-commerce platform with shopping cart, payment processing, 
+								inventory management and admin panel.
 							</p>
 						</div>
 						<ul class="project-tech">
@@ -181,7 +179,7 @@ const t = useTranslations(lang);
 					</div>
 					<div class="project-image">
 						<div class="placeholder-project">
-							<span>Imagen del Proyecto</span>
+							<span>Project Image</span>
 						</div>
 					</div>
 				</div>
