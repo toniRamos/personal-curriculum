@@ -984,4 +984,22 @@ const t = useTranslations(lang);
 
 		console.log('Scroll reveal initialized - elements will appear elegantly as you scroll');
 	});
+
+	// Force scroll to top on page load/refresh
+	window.addEventListener('beforeunload', () => {
+		window.scrollTo(0, 0);
+	});
+
+	// Additional scroll to top on load
+	window.addEventListener('load', () => {
+		setTimeout(() => {
+			window.scrollTo(0, 0);
+		}, 100);
+	});
+
+	// Immediate scroll to top
+	if ('scrollRestoration' in history) {
+		history.scrollRestoration = 'manual';
+	}
+	window.scrollTo(0, 0);
 </script>
