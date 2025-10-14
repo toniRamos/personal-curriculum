@@ -28,7 +28,76 @@
   },
   "experience": {
     "title": "Where I've worked",
-    "number": "02."
+    "number": "02.",
+    "jobs": [
+      {
+        "title": "Lead Software Engineer / Software Architect",
+        "company": "Vibia",
+        "duration": "May 2022 - Present · 3 years 6 months",
+        "location": "Barcelona, Catalonia, Spain",
+        "responsibilities": [
+          "Defined and implemented Domain-Driven Design and Hexagonal Architecture approach, replacing tightly coupled microservices with a clean, testable monorepo",
+          "Replaced legacy PHP/Symfony stack with modular React + Next.js frontend and Node.js + Express backend",
+          "Built the team from zero - hiring, mentoring, and developing junior engineers into senior contributors",
+          "Designed standalone API layer with business logic decoupled from infrastructure, tested via TDD",
+          "Delivered a fully dockerized, idempotent, and maintainable codebase"
+        ],
+        "technologies": ["Node.js", "React", "Next.js", "MongoDB", "Docker", "GitHub Actions", "Dynamics 365", "TDD", "DDD"]
+      },
+      {
+        "title": "Senior Software Developer",
+        "company": "Signa Sports United",
+        "duration": "Feb 2021 - May 2022 · 1 year 4 months",
+        "location": "Barcelona, Catalonia, Spain",
+        "responsibilities": [
+          "Modernized a legacy Symfony application with no documentation, no Docker setup, and tightly coupled business logic",
+          "Introduced Domain-Driven Design structure to decouple business rules from framework",
+          "Dockerized entire application, set up CI/CD pipelines, and introduced TDD and Cypress-based testing",
+          "Worked closely with distributed teams across Europe in fully remote environment",
+          "Implemented architecture patterns inspired by Hexagonal Architecture"
+        ],
+        "technologies": ["PHP", "Symfony", "MySQL", "Docker", "Cypress", "GitHub Actions", "DDD", "TDD"]
+      },
+      {
+        "title": "Software Developer",
+        "company": "Mayordomo Smart Points",
+        "duration": "Oct 2020 - Feb 2021 · 5 months",
+        "location": "Barcelona, Catalonia, Spain",
+        "responsibilities": [
+          "Worked on Symfony-based platform, implementing features and contributing to existing architecture",
+          "Focused on backend development and added unit tests for key API endpoints",
+          "Improved code reliability and maintainability",
+          "Collaborated directly with CTO in semi-onsite environment"
+        ],
+        "technologies": ["PHP", "Symfony", "MySQL", "Unit Testing"]
+      },
+      {
+        "title": "Software Developer",
+        "company": "PromoFarma.com",
+        "duration": "May 2019 - Oct 2020 · 1 year 6 months",
+        "location": "Barcelona area, Spain",
+        "responsibilities": [
+          "Built new microservice to support marketing operations using PHP (Symfony), MongoDB, and Docker",
+          "Followed CQRS pattern with high test coverage and clear separation of concerns",
+          "Collaborated closely with Product Owner to deliver scalable, reliable features",
+          "Implemented new functionalities, wrote unit and integration tests improving delivery quality"
+        ],
+        "technologies": ["PHP", "Symfony", "MongoDB", "Docker", "CQRS"]
+      },
+      {
+        "title": "Developer",
+        "company": "LaComunity",
+        "duration": "Jul 2017 - Apr 2019 · 1 year 10 months",
+        "location": "Barcelona area, Spain",
+        "responsibilities": [
+          "Developed and maintained monolithic web application using PHP (Laravel), MySQL, HTML, CSS, and jQuery",
+          "Implemented business-focused features and iterated quickly to meet product needs",
+          "Gained valuable experience working with Docker, managing local environments and debugging complex flows",
+          "Developed PHP skills and learned to navigate legacy systems within startup context"
+        ],
+        "technologies": ["PHP", "Laravel", "MySQL", "HTML", "CSS", "jQuery", "Docker"]
+      }
+    ]
   },
   "projects": {
     "title": "Some things I've built",

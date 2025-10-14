@@ -28,7 +28,76 @@
   },
   "experience": {
     "title": "Donde he trabajado",
-    "number": "02."
+    "number": "02.",
+    "jobs": [
+      {
+        "title": "Lead Software Engineer / Software Architect",
+        "company": "Vibia",
+        "duration": "May. 2022 - Actualidad · 3 años 6 meses",
+        "location": "Barcelona, Cataluña, España",
+        "responsibilities": [
+          "Definí e implementé un enfoque de Domain-Driven Design y Arquitectura Hexagonal, reemplazando microservicios acoplados con un monorepo limpio y testeable",
+          "Reemplacé el stack legacy PHP/Symfony con frontend modular React + Next.js y backend en Node.js y Express",
+          "Construí el equipo desde cero: reclutamiento, mentoría y desarrollo de ingenieros junior a senior contributors",
+          "Diseñé una capa de API standalone con lógica de negocio desacoplada de infraestructura, testeada via TDD",
+          "Entregué una base de código completamente dockerizada, idempotente y mantenible"
+        ],
+        "technologies": ["Node.js", "React", "Next.js", "MongoDB", "Docker", "GitHub Actions", "Dynamics 365", "TDD", "DDD"]
+      },
+      {
+        "title": "Senior Software Developer",
+        "company": "Signa Sports United",
+        "duration": "Feb. 2021 - May. 2022 · 1 año 4 meses",
+        "location": "Barcelona, Cataluña, España",
+        "responsibilities": [
+          "Modernizé una aplicación Symfony legacy sin documentación, sin Docker y con lógica de negocio acoplada",
+          "Introduje una estructura Domain-Driven Design para desacoplar las reglas de negocio del framework",
+          "Dockericé toda la aplicación, configuré pipelines CI/CD e introduje TDD y testing con Cypress",
+          "Trabajé con equipos distribuidos por Europa en un entorno completamente remoto",
+          "Implementé patrones de arquitectura inspirados en Arquitectura Hexagonal"
+        ],
+        "technologies": ["PHP", "Symfony", "MySQL", "Docker", "Cypress", "GitHub Actions", "DDD", "TDD"]
+      },
+      {
+        "title": "Software Developer",
+        "company": "Mayordomo Smart Points",
+        "duration": "Oct. 2020 - Feb. 2021 · 5 meses",
+        "location": "Barcelona, Cataluña, España",
+        "responsibilities": [
+          "Trabajé en una plataforma basada en Symfony, implementando funcionalidades y contribuyendo a la arquitectura existente",
+          "Me enfoqué en desarrollo backend y agregué unit tests para endpoints clave de API",
+          "Mejoré la confiabilidad y mantenibilidad del código",
+          "Colaboré directamente con el CTO en un entorno semi-presencial"
+        ],
+        "technologies": ["PHP", "Symfony", "MySQL", "Unit Testing"]
+      },
+      {
+        "title": "Software Developer",
+        "company": "PromoFarma.com",
+        "duration": "May. 2019 - Oct. 2020 · 1 año 6 meses",
+        "location": "Barcelona y alrededores, España",
+        "responsibilities": [
+          "Construí un nuevo microservicio para soportar operaciones de marketing usando PHP (Symfony), MongoDB y Docker",
+          "Seguí el patrón CQRS con alta cobertura de tests y clara separación de responsabilidades",
+          "Colaboré estrechamente con el Product Owner para entregar funcionalidades escalables y confiables",
+          "Implementé nuevas funcionalidades, escribí unit e integration tests mejorando la calidad de entrega"
+        ],
+        "technologies": ["PHP", "Symfony", "MongoDB", "Docker", "CQRS"]
+      },
+      {
+        "title": "Developer",
+        "company": "LaComunity",
+        "duration": "Jul. 2017 - Abr. 2019 · 1 año 10 meses",
+        "location": "Barcelona y alrededores, España",
+        "responsibilities": [
+          "Desarrollé y mantuve una aplicación web monolítica usando PHP (Laravel), MySQL, HTML, CSS y jQuery",
+          "Implementé funcionalidades orientadas al negocio e iteré rápidamente para satisfacer necesidades del producto",
+          "Gané experiencia trabajando con Docker, gestionando entornos locales y debugeando flujos complejos",
+          "Desarrollé mis habilidades en PHP y aprendí a navegar sistemas legacy en el contexto de startup"
+        ],
+        "technologies": ["PHP", "Laravel", "MySQL", "HTML", "CSS", "jQuery", "Docker"]
+      }
+    ]
   },
   "projects": {
     "title": "Algunas cosas que he construido",

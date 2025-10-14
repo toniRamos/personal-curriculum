@@ -82,24 +82,23 @@ const t = useTranslations(lang);
 				</h2>
 			</div>
 			<div class="experience-content">
-				<div class="job">
-					<h3>Senior Frontend Engineer <span class="company">@ MiEmpresa</span></h3>
-					<p class="job-duration">Enero 2022 - Presente</p>
-					<ul class="job-responsibilities">
-						<li>Desarrollo y mantenimiento de componentes críticos para el frontend de la empresa</li>
-						<li>Trabajo estrecho con equipos multifuncionales para implementar las mejores prácticas</li>
-						<li>Construcción de productos accesibles e inclusivos</li>
-					</ul>
-				</div>
-				<div class="job">
-					<h3>Frontend Developer <span class="company">@ StartupTech</span></h3>
-					<p class="job-duration">Junio 2020 - Diciembre 2021</p>
-					<ul class="job-responsibilities">
-						<li>Desarrollé interfaces de usuario responsive y optimizadas para múltiples dispositivos</li>
-						<li>Colaboré con diseñadores UX/UI para implementar designs pixel-perfect</li>
-						<li>Implementé mejores prácticas de rendimiento web y SEO</li>
-					</ul>
-				</div>
+				{t('experience.jobs').map((job, index) => (
+					<div class="job" key={index}>
+						<h3>{job.title} <span class="company">@ {job.company}</span></h3>
+						<p class="job-duration">{job.duration}</p>
+						<p class="job-location">{job.location}</p>
+						<ul class="job-responsibilities">
+							{job.responsibilities.map((responsibility, respIndex) => (
+								<li key={respIndex}>{responsibility}</li>
+							))}
+						</ul>
+						<div class="job-technologies">
+							{job.technologies.map((tech, techIndex) => (
+								<span class="tech-tag" key={techIndex}>{tech}</span>
+							))}
+						</div>
+					</div>
+				))}
 			</div>
 		</div>
 	</section>
@@ -384,15 +383,23 @@ const t = useTranslations(lang);
 	}
 
 	.job-duration {
-		margin-bottom: 25px;
+		margin-bottom: 5px;
 		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
 		font-size: 13px;
 		color: #8892b0;
 	}
 
+	.job-location {
+		margin-bottom: 25px;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 13px;
+		color: #64ffda;
+		font-style: italic;
+	}
+
 	.job-responsibilities {
 		padding: 0;
-		margin: 0;
+		margin: 0 0 20px 0;
 		list-style: none;
 	}
 
@@ -411,6 +418,29 @@ const t = useTranslations(lang);
 		color: #64ffda;
 		font-size: 14px;
 		line-height: 12px;
+	}
+
+	.job-technologies {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin-top: 15px;
+	}
+
+	.tech-tag {
+		background-color: rgba(100, 255, 218, 0.1);
+		color: #64ffda;
+		padding: 4px 8px;
+		border-radius: 4px;
+		font-size: 12px;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		border: 1px solid rgba(100, 255, 218, 0.3);
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	.tech-tag:hover {
+		background-color: rgba(100, 255, 218, 0.2);
+		transform: translateY(-2px);
 	}
 
 	/* Projects Section */
