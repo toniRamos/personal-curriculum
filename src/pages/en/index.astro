@@ -76,7 +76,7 @@ const t = useTranslations('en');
 					</ul>
 				</div>
 				<div class="about-image">
-					<div class="image-wrapper">
+					<div class="image-wrapper animate-profile">
 						<img 
 							src="/images/profile/profile-picture.jpg" 
 							alt="Antonio Ramos - Software Architect"
@@ -431,6 +431,18 @@ const t = useTranslations('en');
 		position: relative;
 		width: 100%;
 		border-radius: 4px;
+	}
+
+	.animate-profile {
+		opacity: 0;
+		transform: scale(0.8) rotate(-5deg);
+		transform-origin: center center;
+		transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+
+	.animate-profile.animated {
+		opacity: 1;
+		transform: scale(1) rotate(0deg);
 	}
 
 	.image-wrapper img {
@@ -982,23 +994,36 @@ const t = useTranslations('en');
 		});
 
 		console.log('Scroll reveal initialized - elements will appear elegantly as you scroll');
+
+		// Profile image animation
+		const profileImage = document.querySelector('.animate-profile');
+		if (profileImage) {
+			const profileObserver = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						setTimeout(() => {
+							entry.target.classList.add('animated');
+						}, 300); // Small delay for better effect
+						profileObserver.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.3 });
+			
+			profileObserver.observe(profileImage);
+		}
 	});
 
-	// Force scroll to top on page load/refresh
+	// Force scroll to top on page load/refresh (after animations are set up)
+	if ('scrollRestoration' in history) {
+		history.scrollRestoration = 'manual';
+	}
+	
 	window.addEventListener('beforeunload', () => {
 		window.scrollTo(0, 0);
 	});
 
-	// Additional scroll to top on load
-	window.addEventListener('load', () => {
-		setTimeout(() => {
-			window.scrollTo(0, 0);
-		}, 100);
-	});
-
-	// Immediate scroll to top
-	if ('scrollRestoration' in history) {
-		history.scrollRestoration = 'manual';
-	}
-	window.scrollTo(0, 0);
+	// Delayed scroll to top to not interfere with animations
+	setTimeout(() => {
+		window.scrollTo(0, 0);
+	}, 50);
 </script>
