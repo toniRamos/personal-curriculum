@@ -12,10 +12,10 @@
   "hero": {
     "intro": "Hola, mi nombre es",
     "name": "Antonio Ramos.",
-    "subtitle": "Creo experiencias digitales para la web.",
-    "description": "Soy un desarrollador frontend especializado en crear experiencias digitales accesibles y pixel-perfect. Actualmente, me enfoco en construir productos accesibles e inclusivos en",
-    "company": "@MiEmpresa",
-    "cta": "¡Trabajemos juntos!"
+    "subtitle": "Diseño sistemas escalables que permiten a los equipos avanzar rápido.",
+    "description": "Soy Arquitecto de Software con más de 10 años de experiencia diseñando sistemas mantenibles usando principios de código limpio, DDD y tecnologías modernas. Conecto objetivos de negocio con excelencia técnica, permitiendo que los equipos entreguen valor continuamente.",
+    "company": "",
+    "cta": "¡Construyamos algo grandioso!"
   },
   "about": {
     "title": "Acerca de mí",

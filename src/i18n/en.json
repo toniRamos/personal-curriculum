@@ -12,10 +12,10 @@
   "hero": {
     "intro": "Hi, my name is",
     "name": "Antonio Ramos.",
-    "subtitle": "I build digital experiences for the web.",
-    "description": "I'm a frontend developer specialized in creating accessible, pixel-perfect digital experiences. Currently, I'm focused on building accessible and inclusive products at",
-    "company": "@MyCompany",
-    "cta": "Let's work together!"
+    "subtitle": "I architect scalable systems that enable teams to move fast.",
+    "description": "I'm a Software Architect with 10+ years of experience designing maintainable systems using clean code principles, DDD, and modern technologies. I bridge business goals with technical excellence, enabling teams to ship value continuously.",
+    "company": "",
+    "cta": "Let's build something great!"
   },
   "about": {
     "title": "About me",
