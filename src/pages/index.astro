@@ -137,21 +137,23 @@ const t = useTranslations(lang);
 					<div class="project-content">
 						<p class="project-overline">{t('projects.featured')}</p>
 						<h3 class="project-title">
-							<a href="#" target="_blank">Spotify Profile</a>
+							<a href="https://github.com/toniRamos/personal-curriculum" target="_blank">Portfolio Personal</a>
 						</h3>
 						<div class="project-description">
 							<p>
-								Una aplicación web para visualizar datos personalizados de Spotify. Ve tus 
-								artistas principales, pistas principales, pistas reproducidas recientemente 
-								e información detallada sobre cada pista.
+								Portfolio profesional multiidioma construido con Astro y TypeScript. 
+								Implementa animaciones optimizadas, arquitectura limpia, deployment 
+								con Docker y sistema completo de internacionalización (ES/EN).
 							</p>
 						</div>
-						<ul class="project-tech">
-							<li>React</li>
-							<li>Express</li>
-							<li>Spotify API</li>
-							<li>Styled Components</li>
-						</ul>
+						<div class="project-technologies">
+							<span class="tech-tag">Astro</span>
+							<span class="tech-tag">TypeScript</span>
+							<span class="tech-tag">CSS3</span>
+							<span class="tech-tag">Docker</span>
+							<span class="tech-tag">Anime.js</span>
+							<span class="tech-tag">i18n</span>
+						</div>
 					</div>
 					<div class="project-image">
 						<div class="placeholder-project">
@@ -172,12 +174,12 @@ const t = useTranslations(lang);
 								procesamiento de pagos, gestión de inventario y panel de administración.
 							</p>
 						</div>
-						<ul class="project-tech">
-							<li>Next.js</li>
-							<li>Node.js</li>
-							<li>MongoDB</li>
-							<li>Stripe API</li>
-						</ul>
+						<div class="project-technologies">
+							<span class="tech-tag">Next.js</span>
+							<span class="tech-tag">Node.js</span>
+							<span class="tech-tag">MongoDB</span>
+							<span class="tech-tag">Stripe API</span>
+						</div>
 					</div>
 					<div class="project-image">
 						<div class="placeholder-project">
@@ -630,6 +632,24 @@ const t = useTranslations(lang);
 		margin: 0;
 	}
 
+	.project-technologies {
+		display: flex;
+		flex-wrap: wrap;
+		position: relative;
+		z-index: 2;
+		margin: 25px 0 10px;
+		gap: 10px;
+	}
+
+	.project-technologies .tech-tag {
+		margin: 0;
+	}
+
+	.project-card:nth-child(even) .project-technologies {
+		justify-content: flex-end;
+	}
+
+	/* Legacy support for existing project-tech */
 	.project-tech {
 		display: flex;
 		flex-wrap: wrap;
@@ -778,6 +798,11 @@ const t = useTranslations(lang);
 			grid-column: 1 / -1;
 			height: 100%;
 			opacity: 0.25;
+		}
+
+		.project-technologies,
+		.project-card:nth-child(even) .project-technologies {
+			justify-content: flex-start;
 		}
 
 		.project-tech,
