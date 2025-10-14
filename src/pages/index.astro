@@ -4,12 +4,13 @@ import Navigation from '../components/Navigation.astro';
 import Social from '../components/Social.astro';
 import Loader from '../components/Loader.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/ui';
+import { siteConfig } from '../config/site';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout title="Antonio Ramos - Frontend Engineer">
+<Layout title={siteConfig.title}>
 	<Loader />
 	<Navigation />
 	<Social />
@@ -183,7 +184,7 @@ const t = useTranslations(lang);
 				<p class="contact-description">
 					{t('contact.description')}
 				</p>
-				<a href="mailto:antonio@example.com" class="contact-button">{t('contact.button')}</a>
+				<a href={`mailto:${siteConfig.email}`} class="contact-button">{t('contact.button')}</a>
 			</div>
 		</div>
 	</section>

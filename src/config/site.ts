@@ -4,7 +4,7 @@ export const siteConfig = {
   title: "Antonio Ramos - Frontend Engineer",
   description: "I build accessible, pixel-perfect digital experiences for the web.",
   url: "https://antoniochiang.com",
-  email: "antonio@example.com",
+  email: "antonioramostorres@gmail.com",
   
   // Social links
   social: {
