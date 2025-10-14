@@ -108,6 +108,12 @@ const t = useTranslations(lang);
 		display: block;
 		width: 42px;
 		height: 42px;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	.logo:hover {
+		text-decoration: none;
 	}
 
 	.logo-text {
@@ -121,11 +127,22 @@ const t = useTranslations(lang);
 		color: #64ffda;
 		font-size: 20px;
 		font-weight: 400;
-		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+		background: rgba(100, 255, 218, 0.05);
+		box-shadow: 
+			0 0 15px rgba(100, 255, 218, 0.2),
+			inset 0 0 15px rgba(100, 255, 218, 0.1);
+		filter: blur(0.5px);
+		transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+		animation: logoGentleGlow 4s ease-in-out infinite alternate;
 	}
 
 	.logo:hover .logo-text {
-		background-color: rgba(100, 255, 218, 0.1);
+		background-color: rgba(100, 255, 218, 0.15);
+		filter: blur(0px);
+		box-shadow: 
+			0 0 25px rgba(100, 255, 218, 0.4),
+			inset 0 0 20px rgba(100, 255, 218, 0.15);
+		transform: scale(1.05);
 	}
 
 	.nav-links {
@@ -324,6 +341,28 @@ const t = useTranslations(lang);
 
 		.mobile-menu {
 			display: block;
+		}
+	}
+
+	/* Animación sutil para el logo similar al loader */
+	@keyframes logoGentleGlow {
+		0% {
+			filter: blur(0.5px);
+			box-shadow: 
+				0 0 15px rgba(100, 255, 218, 0.2),
+				inset 0 0 15px rgba(100, 255, 218, 0.1);
+		}
+		50% {
+			filter: blur(0.8px);
+			box-shadow: 
+				0 0 20px rgba(100, 255, 218, 0.3),
+				inset 0 0 18px rgba(100, 255, 218, 0.15);
+		}
+		100% {
+			filter: blur(0.3px);
+			box-shadow: 
+				0 0 12px rgba(100, 255, 218, 0.15),
+				inset 0 0 12px rgba(100, 255, 218, 0.08);
 		}
 	}
 </style>
