@@ -1,0 +1,258 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<nav class="navbar">
+	<div class="nav-header">
+		<a href="/" class="logo">
+			<span class="logo-text">AR</span>
+		</a>
+	</div>
+	
+	<div class="nav-links">
+		<a href="#about" class="nav-link">
+			<span class="nav-number">01.</span>
+			{t('nav.about')}
+		</a>
+		<a href="#experience" class="nav-link">
+			<span class="nav-number">02.</span>
+			{t('nav.experience')}
+		</a>
+		<a href="#projects" class="nav-link">
+			<span class="nav-number">03.</span>
+			{t('nav.projects')}
+		</a>
+		<a href="#contact" class="nav-link">
+			<span class="nav-number">04.</span>
+			{t('nav.contact')}
+		</a>
+	</div>
+
+	<div class="nav-actions">
+		<div class="language-selector">
+			<select id="languageSelect" class="language-select">
+				<option value="es" selected={lang === 'es'}>ES</option>
+				<option value="en" selected={lang === 'en'}>EN</option>
+			</select>
+		</div>
+	</div>
+
+	<!-- Mobile menu button -->
+	<div class="mobile-menu-toggle">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</nav>
+
+<style>
+	.navbar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100px;
+		background-color: rgba(15, 23, 42, 0.85);
+		backdrop-filter: blur(10px);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 50px;
+		z-index: 1000;
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	.navbar.scrolled {
+		height: 70px;
+		box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+	}
+
+	.nav-header {
+		z-index: 1001;
+	}
+
+	.logo {
+		display: block;
+		width: 42px;
+		height: 42px;
+	}
+
+	.logo-text {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		border: 2px solid #64ffda;
+		border-radius: 3px;
+		color: #64ffda;
+		font-size: 20px;
+		font-weight: 400;
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	.logo:hover .logo-text {
+		background-color: rgba(100, 255, 218, 0.1);
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		gap: 35px;
+	}
+
+	.nav-link {
+		color: #cbd5e1;
+		font-size: 13px;
+		font-weight: 400;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		padding: 10px 0;
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+		text-decoration: none;
+	}
+
+	.nav-link:hover {
+		color: #64ffda;
+		text-decoration: none;
+	}
+
+	.nav-number {
+		color: #64ffda;
+		font-size: 12px;
+		font-weight: 400;
+		margin-right: 8px;
+	}
+
+	.nav-actions {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		z-index: 1001;
+	}
+
+	.language-selector {
+		position: relative;
+	}
+
+	.language-select {
+		background: transparent;
+		border: 1px solid #64ffda;
+		border-radius: 4px;
+		color: #64ffda;
+		padding: 8px 12px;
+		font-size: 13px;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		cursor: pointer;
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%2364ffda' viewBox='0 0 16 16'%3e%3cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3e%3c/svg%3e");
+		background-repeat: no-repeat;
+		background-position: right 8px center;
+		background-size: 12px;
+		padding-right: 30px;
+	}
+
+	.language-select:hover {
+		background-color: rgba(100, 255, 218, 0.1);
+	}
+
+	.language-select:focus {
+		outline: none;
+		box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+	}
+
+	.mobile-menu-toggle {
+		display: none;
+		flex-direction: column;
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+		z-index: 1001;
+	}
+
+	.mobile-menu-toggle span {
+		width: 100%;
+		height: 2px;
+		background-color: #64ffda;
+		margin: 3px 0;
+		transition: all 0.3s ease;
+	}
+
+	@media (max-width: 768px) {
+		.navbar {
+			padding: 0 25px;
+		}
+
+		.nav-links {
+			display: none;
+		}
+
+		.mobile-menu-toggle {
+			display: flex;
+		}
+	}
+</style>
+
+<script>
+	// Scroll behavior for navbar
+	let lastScrollTop = 0;
+	const navbar = document.querySelector('.navbar');
+	
+	window.addEventListener('scroll', () => {
+		const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+		
+		if (scrollTop > 100) {
+			navbar?.classList.add('scrolled');
+		} else {
+			navbar?.classList.remove('scrolled');
+		}
+		
+		lastScrollTop = scrollTop;
+	});
+
+	// Smooth scrolling for anchor links
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+			const target = document.querySelector(this.getAttribute('href'));
+			if (target) {
+				target.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start'
+				});
+			}
+		});
+	});
+
+	// Language selector functionality
+	const languageSelect = document.getElementById('languageSelect');
+	if (languageSelect) {
+		languageSelect.addEventListener('change', function(e) {
+			const selectedLang = e.target.value;
+			const currentPath = window.location.pathname;
+			
+			if (selectedLang === 'en') {
+				// Navigate to English version
+				if (currentPath === '/') {
+					window.location.href = '/en';
+				} else if (!currentPath.startsWith('/en')) {
+					window.location.href = '/en' + currentPath;
+				}
+			} else {
+				// Navigate to Spanish version (default)
+				if (currentPath.startsWith('/en/')) {
+					window.location.href = currentPath.replace('/en', '');
+				} else if (currentPath === '/en') {
+					window.location.href = '/';
+				}
+			}
+		});
+	}
+</script>

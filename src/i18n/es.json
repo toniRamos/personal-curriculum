@@ -1,8 +1,47 @@
 {
   "nav": {
     "home": "Inicio",
+    "about": "Acerca de",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "resume": "Currículum",
     "personalInfo": "Información Personal",
     "brand": "Mi Portfolio"
+  },
+  "hero": {
+    "intro": "Hola, mi nombre es",
+    "name": "Antonio Ramos.",
+    "subtitle": "Creo experiencias digitales para la web.",
+    "description": "Soy un desarrollador frontend especializado en crear experiencias digitales accesibles y pixel-perfect. Actualmente, me enfoco en construir productos accesibles e inclusivos en",
+    "company": "@MiEmpresa",
+    "cta": "¡Trabajemos juntos!"
+  },
+  "about": {
+    "title": "Acerca de mí",
+    "number": "01.",
+    "paragraphs": {
+      "intro": "¡Hola! Mi nombre es Antonio y disfruto creando cosas que viven en internet. Mi interés en el desarrollo web comenzó en 2012 cuando decidí intentar editar temas personalizados de Tumblr — resulta que hackear HTML y CSS me enseñó mucho sobre desarrollo web.",
+      "experience": "Avanzando rápido hasta hoy, y he tenido el privilegio de trabajar en una agencia de publicidad, una start-up, una gran corporación y un estudio de productos digitales. Mi enfoque principal en estos días es construir productos accesibles e inclusivos y experiencias digitales en una variedad de tecnologías.",
+      "technologies": "Aquí hay algunas tecnologías con las que he estado trabajando recientemente:"
+    }
+  },
+  "experience": {
+    "title": "Donde he trabajado",
+    "number": "02."
+  },
+  "projects": {
+    "title": "Algunas cosas que he construido",
+    "number": "03.",
+    "featured": "Proyecto Destacado",
+    "personal": "Proyecto Personal"
+  },
+  "contact": {
+    "title": "¿Qué sigue?",
+    "number": "04.",
+    "heading": "Ponte en contacto",
+    "description": "Aunque no estoy buscando nuevas oportunidades en este momento, mi bandeja de entrada siempre está abierta. Ya sea que tengas una pregunta o simplemente quieras saludar, ¡haré todo lo posible por responderte!",
+    "button": "Salúdame"
   },
   "home": {
     "title": "Inicio - Mi Portfolio Personal",

@@ -1,317 +1,610 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { useTranslations, getLangFromUrl, translatePath } from '../i18n/ui';
+import Navigation from '../components/Navigation.astro';
+import Social from '../components/Social.astro';
+import Loader from '../components/Loader.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout title={t('home.title')}>
-	<div class="home-container">
+<Layout title="Antonio Ramos - Frontend Engineer">
+	<Loader />
+	<Navigation />
+	<Social />
+	
+	<!-- Hero Section -->
+	<section id="hero" class="hero">
 		<div class="container">
-			<div class="wip-section">
-				<div class="wip-icon">🚧</div>
-				<h1 class="wip-title">{t('home.wipTitle')}</h1>
-				<p class="wip-subtitle">{t('home.wipSubtitle')}</p>
-				
-				<div class="wip-content">
-					<p class="wip-description">
-						{t('home.welcome')}
+			<div class="hero-content">
+				<p class="intro">{t('hero.intro')}</p>
+				<h1 class="hero-title">{t('hero.name')}</h1>
+				<h2 class="hero-subtitle">{t('hero.subtitle')}</h2>
+				<p class="hero-description">
+					{t('hero.description')} <a href="https://example.com" target="_blank">{t('hero.company')}</a>.
+				</p>
+				<div class="hero-cta">
+					<a href="#contact" class="cta-button">{t('hero.cta')}</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<section id="about" class="about">
+		<div class="container">
+			<div class="section-header">
+				<h2 class="section-title">
+					<span class="section-number">{t('about.number')}</span>
+					{t('about.title')}
+				</h2>
+			</div>
+			<div class="about-content">
+				<div class="about-text">
+					<p>
+						{t('about.paragraphs.intro')}
 					</p>
-					
-					<div class="features-grid">
-						<div class="feature-card">
-							<div class="feature-icon">📂</div>
-							<h3 class="feature-title">{t('home.features.projects.title')}</h3>
-							<p class="feature-description">
-								{t('home.features.projects.description')}
-							</p>
+					<p>
+						{t('about.paragraphs.experience')}
+					</p>
+					<p>
+						{t('about.paragraphs.technologies')}
+					</p>
+					<ul class="skills-list">
+						<li>JavaScript (ES6+)</li>
+						<li>TypeScript</li>
+						<li>React</li>
+						<li>Node.js</li>
+						<li>Vue.js</li>
+						<li>Astro</li>
+					</ul>
+				</div>
+				<div class="about-image">
+					<div class="image-wrapper">
+						<div class="placeholder-image">
+							<span>Foto de Perfil</span>
 						</div>
-						
-						<div class="feature-card">
-							<div class="feature-icon">💼</div>
-							<h3 class="feature-title">{t('home.features.experience.title')}</h3>
-							<p class="feature-description">
-								{t('home.features.experience.description')}
-							</p>
-						</div>
-						
-						<div class="feature-card">
-							<div class="feature-icon">🎯</div>
-							<h3 class="feature-title">{t('home.features.skills.title')}</h3>
-							<p class="feature-description">
-								{t('home.features.skills.description')}
-							</p>
-						</div>
-					</div>
-					
-					<div class="progress-section">
-						<h3 class="progress-title">{t('home.progress.title')}</h3>
-						<ul class="progress-list">
-							<li class="progress-item completed">✅ {t('home.progress.items.personalInfo')}</li>
-							<li class="progress-item completed">✅ {t('home.progress.items.responsive')}</li>
-							<li class="progress-item wip">🔄 {t('home.progress.items.gallery')}</li>
-							<li class="progress-item pending">⏳ {t('home.progress.items.blog')}</li>
-							<li class="progress-item pending">⏳ {t('home.progress.items.contact')}</li>
-							<li class="progress-item pending">⏳ {t('home.progress.items.certifications')}</li>
-						</ul>
-					</div>
-					
-					<div class="cta-section">
-						<p class="cta-text">{t('home.cta.text')}</p>
-						<a href={translatePath(lang, 'personal-information')} class="cta-button">
-							{t('home.cta.button')}
-						</a>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
+
+	<!-- Experience Section -->
+	<section id="experience" class="experience">
+		<div class="container">
+			<div class="section-header">
+				<h2 class="section-title">
+					<span class="section-number">{t('experience.number')}</span>
+					{t('experience.title')}
+				</h2>
+			</div>
+			<div class="experience-content">
+				<div class="job">
+					<h3>Senior Frontend Engineer <span class="company">@ MiEmpresa</span></h3>
+					<p class="job-duration">Enero 2022 - Presente</p>
+					<ul class="job-responsibilities">
+						<li>Desarrollo y mantenimiento de componentes críticos para el frontend de la empresa</li>
+						<li>Trabajo estrecho con equipos multifuncionales para implementar las mejores prácticas</li>
+						<li>Construcción de productos accesibles e inclusivos</li>
+					</ul>
+				</div>
+				<div class="job">
+					<h3>Frontend Developer <span class="company">@ StartupTech</span></h3>
+					<p class="job-duration">Junio 2020 - Diciembre 2021</p>
+					<ul class="job-responsibilities">
+						<li>Desarrollé interfaces de usuario responsive y optimizadas para múltiples dispositivos</li>
+						<li>Colaboré con diseñadores UX/UI para implementar designs pixel-perfect</li>
+						<li>Implementé mejores prácticas de rendimiento web y SEO</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Projects Section -->
+	<section id="projects" class="projects">
+		<div class="container">
+			<div class="section-header">
+				<h2 class="section-title">
+					<span class="section-number">{t('projects.number')}</span>
+					{t('projects.title')}
+				</h2>
+			</div>
+			<div class="projects-content">
+				<div class="project-card featured">
+					<div class="project-content">
+						<p class="project-overline">{t('projects.featured')}</p>
+						<h3 class="project-title">
+							<a href="#" target="_blank">Spotify Profile</a>
+						</h3>
+						<div class="project-description">
+							<p>
+								Una aplicación web para visualizar datos personalizados de Spotify. Ve tus 
+								artistas principales, pistas principales, pistas reproducidas recientemente 
+								e información detallada sobre cada pista.
+							</p>
+						</div>
+						<ul class="project-tech">
+							<li>React</li>
+							<li>Express</li>
+							<li>Spotify API</li>
+							<li>Styled Components</li>
+						</ul>
+					</div>
+					<div class="project-image">
+						<div class="placeholder-project">
+							<span>Imagen del Proyecto</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="project-card">
+					<div class="project-content">
+						<p class="project-overline">{t('projects.personal')}</p>
+						<h3 class="project-title">
+							<a href="#" target="_blank">E-commerce Platform</a>
+						</h3>
+						<div class="project-description">
+							<p>
+								Plataforma de comercio electrónico completa con carrito de compras, 
+								procesamiento de pagos, gestión de inventario y panel de administración.
+							</p>
+						</div>
+						<ul class="project-tech">
+							<li>Next.js</li>
+							<li>Node.js</li>
+							<li>MongoDB</li>
+							<li>Stripe API</li>
+						</ul>
+					</div>
+					<div class="project-image">
+						<div class="placeholder-project">
+							<span>Imagen del Proyecto</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact" class="contact">
+		<div class="container">
+			<div class="section-header">
+				<h2 class="section-title">
+					<span class="section-number">{t('contact.number')}</span>
+					{t('contact.title')}
+				</h2>
+			</div>
+			<div class="contact-content">
+				<h2 class="contact-title">{t('contact.heading')}</h2>
+				<p class="contact-description">
+					{t('contact.description')}
+				</p>
+				<a href="mailto:antonio@example.com" class="contact-button">{t('contact.button')}</a>
+			</div>
+		</div>
+	</section>
 </Layout>
 
 <style>
-	.home-container {
-		min-height: calc(100vh - 80px);
+	/* Hero Section */
+	.hero {
 		display: flex;
 		align-items: center;
-		padding: 2rem 0;
+		min-height: 100vh;
+		padding-top: 100px;
 	}
 
-	.container {
+	.hero-content {
 		max-width: 1000px;
-		margin: 0 auto;
-		padding: 0 1rem;
-		width: 100%;
 	}
 
-	.wip-section {
-		background: white;
-		border-radius: 20px;
-		padding: 3rem;
-		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-		text-align: center;
-		border: 1px solid #e9ecef;
+	.intro {
+		margin: 0 0 20px 4px;
+		color: #64ffda;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 16px;
+		font-weight: 400;
 	}
 
-	.wip-icon {
-		font-size: 4rem;
-		margin-bottom: 1rem;
-		animation: bounce 2s infinite;
-	}
-
-	.wip-title {
-		font-size: 3rem;
-		font-weight: 700;
-		color: #333;
-		margin: 0 0 0.5rem 0;
-		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-	}
-
-	.wip-subtitle {
-		font-size: 1.2rem;
-		color: #666;
-		margin: 0 0 2rem 0;
-		font-style: italic;
-	}
-
-	.wip-content {
-		max-width: 800px;
-		margin: 0 auto;
-	}
-
-	.wip-description {
-		font-size: 1.1rem;
-		color: #555;
-		line-height: 1.6;
-		margin-bottom: 3rem;
-	}
-
-	.features-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 2rem;
-		margin-bottom: 3rem;
-	}
-
-	.feature-card {
-		background: #f8f9fa;
-		padding: 2rem 1.5rem;
-		border-radius: 12px;
-		border: 2px solid transparent;
-		transition: all 0.3s ease;
-	}
-
-	.feature-card:hover {
-		border-color: #667eea;
-		transform: translateY(-4px);
-		box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
-	}
-
-	.feature-icon {
-		font-size: 2.5rem;
-		margin-bottom: 1rem;
-	}
-
-	.feature-title {
-		font-size: 1.3rem;
-		font-weight: 600;
-		color: #333;
-		margin: 0 0 1rem 0;
-	}
-
-	.feature-description {
-		color: #666;
-		line-height: 1.5;
+	.hero-title {
 		margin: 0;
-		font-size: 0.95rem;
-	}
-
-	.progress-section {
-		background: #f8f9fa;
-		padding: 2rem;
-		border-radius: 12px;
-		margin-bottom: 3rem;
-		text-align: left;
-	}
-
-	.progress-title {
-		font-size: 1.4rem;
+		font-size: clamp(40px, 8vw, 80px);
+		line-height: 1.1;
+		color: #ccd6f6;
 		font-weight: 600;
-		color: #333;
-		margin: 0 0 1.5rem 0;
-		text-align: center;
 	}
 
-	.progress-list {
-		list-style: none;
-		padding: 0;
+	.hero-subtitle {
 		margin: 0;
-		max-width: 500px;
-		margin: 0 auto;
+		font-size: clamp(40px, 8vw, 80px);
+		line-height: 1.1;
+		color: #8892b0;
+		font-weight: 600;
 	}
 
-	.progress-item {
-		padding: 0.75rem 0;
-		font-size: 1rem;
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
+	.hero-description {
+		margin: 20px 0 0 0;
+		max-width: 540px;
+		font-size: 20px;
+		line-height: 1.3;
 	}
 
-	.progress-item.completed {
-		color: #28a745;
-		font-weight: 500;
-	}
-
-	.progress-item.wip {
-		color: #ffc107;
-		font-weight: 500;
-	}
-
-	.progress-item.pending {
-		color: #6c757d;
-	}
-
-	.cta-section {
-		text-align: center;
-	}
-
-	.cta-text {
-		font-size: 1.1rem;
-		color: #555;
-		margin: 0 0 1.5rem 0;
+	.hero-cta {
+		margin-top: 50px;
 	}
 
 	.cta-button {
-		display: inline-block;
-		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-		color: white;
-		padding: 1rem 2rem;
-		border-radius: 8px;
+		color: #64ffda;
+		background-color: transparent;
+		border: 1px solid #64ffda;
+		border-radius: 4px;
+		padding: 20px 28px;
+		font-size: 14px;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		line-height: 1;
 		text-decoration: none;
-		font-weight: 600;
-		font-size: 1.1rem;
-		transition: all 0.3s ease;
-		box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+		cursor: pointer;
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+		display: inline-block;
 	}
 
 	.cta-button:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+		background-color: rgba(100, 255, 218, 0.1);
+		transform: translate3d(0, -2px, 0);
+		text-decoration: none;
 	}
 
-	/* Animación bounce */
-	@keyframes bounce {
-		0%, 20%, 50%, 80%, 100% {
-			transform: translateY(0);
-		}
-		40% {
-			transform: translateY(-10px);
-		}
-		60% {
-			transform: translateY(-5px);
-		}
+	/* Section Styles */
+	section {
+		margin: 0 auto;
+		padding: 100px 0;
+		max-width: 1000px;
 	}
 
-	/* Responsive Design */
+	.section-header {
+		display: flex;
+		align-items: center;
+		position: relative;
+		margin: 10px 0 40px;
+		width: 100%;
+		white-space: nowrap;
+	}
+
+	.section-title {
+		margin: 0;
+		font-size: clamp(24px, 5vw, 32px);
+		font-weight: 600;
+		color: #ccd6f6;
+		line-height: 1.1;
+	}
+
+	.section-number {
+		margin-right: 10px;
+		color: #64ffda;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: clamp(14px, 3vw, 20px);
+		font-weight: 400;
+	}
+
+	.section-header::after {
+		content: '';
+		display: block;
+		position: relative;
+		top: -5px;
+		width: 300px;
+		height: 1px;
+		margin-left: 20px;
+		background-color: #233554;
+	}
+
+	/* About Section */
+	.about-content {
+		display: grid;
+		grid-template-columns: 3fr 2fr;
+		grid-gap: 50px;
+	}
+
+	.about-text p {
+		margin-bottom: 15px;
+	}
+
+	.skills-list {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(140px, 200px));
+		grid-gap: 0 10px;
+		padding: 0;
+		margin: 20px 0 0 0;
+		overflow: hidden;
+		list-style: none;
+	}
+
+	.skills-list li {
+		position: relative;
+		margin-bottom: 10px;
+		padding-left: 20px;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 13px;
+		color: #8892b0;
+	}
+
+	.skills-list li::before {
+		content: '▹';
+		position: absolute;
+		left: 0;
+		color: #64ffda;
+		font-size: 14px;
+		line-height: 12px;
+	}
+
+	.about-image {
+		position: relative;
+		max-width: 300px;
+	}
+
+	.image-wrapper {
+		position: relative;
+		width: 100%;
+		border-radius: 4px;
+		background-color: #64ffda;
+	}
+
+	.placeholder-image {
+		position: relative;
+		border-radius: 4px;
+		background-color: #112240;
+		color: #64ffda;
+		width: 100%;
+		height: 300px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 14px;
+	}
+
+	/* Experience Section */
+	.job {
+		margin-bottom: 40px;
+	}
+
+	.job h3 {
+		margin-bottom: 5px;
+		font-size: 22px;
+		font-weight: 500;
+		color: #ccd6f6;
+	}
+
+	.company {
+		color: #64ffda;
+	}
+
+	.job-duration {
+		margin-bottom: 25px;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 13px;
+		color: #8892b0;
+	}
+
+	.job-responsibilities {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	.job-responsibilities li {
+		position: relative;
+		padding-left: 30px;
+		margin-bottom: 10px;
+		color: #8892b0;
+		font-size: 18px;
+	}
+
+	.job-responsibilities li::before {
+		content: '▹';
+		position: absolute;
+		left: 0;
+		color: #64ffda;
+		font-size: 14px;
+		line-height: 12px;
+	}
+
+	/* Projects Section */
+	.project-card {
+		position: relative;
+		display: grid;
+		grid-gap: 10px;
+		grid-template-columns: repeat(12, 1fr);
+		align-items: center;
+		margin-bottom: 100px;
+	}
+
+	.project-card:nth-child(even) .project-content {
+		grid-column: 7 / -1;
+		text-align: right;
+	}
+
+	.project-card:nth-child(even) .project-image {
+		grid-column: 1 / 8;
+	}
+
+	.project-content {
+		position: relative;
+		grid-area: 1 / 1 / -1 / 7;
+	}
+
+	.project-overline {
+		margin: 10px 0;
+		color: #64ffda;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 13px;
+		font-weight: 400;
+	}
+
+	.project-title {
+		color: #ccd6f6;
+		font-size: clamp(24px, 5vw, 28px);
+		margin: 0 0 20px;
+	}
+
+	.project-title a {
+		color: inherit;
+	}
+
+	.project-description {
+		position: relative;
+		z-index: 2;
+		padding: 25px;
+		border-radius: 4px;
+		background-color: #112240;
+		color: #a8b2d1;
+		font-size: 18px;
+		box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+	}
+
+	.project-description p {
+		margin: 0;
+	}
+
+	.project-tech {
+		display: flex;
+		flex-wrap: wrap;
+		position: relative;
+		z-index: 2;
+		margin: 25px 0 10px;
+		padding: 0;
+		list-style: none;
+	}
+
+	.project-tech li {
+		margin: 0 20px 5px 0;
+		color: #8892b0;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 13px;
+		white-space: nowrap;
+	}
+
+	.project-card:nth-child(even) .project-tech {
+		justify-content: flex-end;
+	}
+
+	.project-card:nth-child(even) .project-tech li {
+		margin: 0 0 5px 20px;
+	}
+
+	.project-image {
+		grid-area: 1 / 6 / -1 / -1;
+		position: relative;
+		z-index: 1;
+	}
+
+	.placeholder-project {
+		width: 100%;
+		height: 300px;
+		background-color: #112240;
+		border-radius: 4px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #64ffda;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 14px;
+	}
+
+	/* Contact Section */
+	.contact {
+		max-width: 600px;
+		margin: 0 auto 100px;
+		text-align: center;
+	}
+
+	.contact-title {
+		display: block;
+		margin-bottom: 20px;
+		font-size: clamp(40px, 5vw, 60px);
+		color: #ccd6f6;
+	}
+
+	.contact-description {
+		margin-bottom: 50px;
+		color: #8892b0;
+		font-size: 20px;
+	}
+
+	.contact-button {
+		color: #64ffda;
+		background-color: transparent;
+		border: 1px solid #64ffda;
+		border-radius: 4px;
+		padding: 20px 28px;
+		font-size: 14px;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		line-height: 1;
+		text-decoration: none;
+		cursor: pointer;
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+		display: inline-block;
+	}
+
+	.contact-button:hover {
+		background-color: rgba(100, 255, 218, 0.1);
+		transform: translate3d(0, -2px, 0);
+		text-decoration: none;
+	}
+
+	/* Responsive */
 	@media (max-width: 768px) {
-		.home-container {
-			padding: 1rem 0;
+		.hero {
+			padding-top: 100px;
 		}
 
-		.wip-section {
-			padding: 2rem 1.5rem;
+		.about-content {
+			display: block;
 		}
 
-		.wip-title {
-			font-size: 2.2rem;
+		.about-image {
+			margin: 50px auto 0;
+			width: 70%;
 		}
 
-		.wip-icon {
-			font-size: 3rem;
-		}
-
-		.features-grid {
+		.project-card {
 			grid-template-columns: 1fr;
-			gap: 1.5rem;
 		}
 
-		.feature-card {
-			padding: 1.5rem 1rem;
+		.project-content,
+		.project-card:nth-child(even) .project-content {
+			grid-column: 1 / -1;
+			padding: 40px 40px 30px;
+			z-index: 5;
+			text-align: left;
 		}
 
-		.progress-section {
-			padding: 1.5rem;
-		}
-	}
-
-	@media (max-width: 480px) {
-		.wip-section {
-			padding: 1.5rem 1rem;
+		.project-image,
+		.project-card:nth-child(even) .project-image {
+			grid-column: 1 / -1;
+			height: 100%;
+			opacity: 0.25;
 		}
 
-		.wip-title {
-			font-size: 1.8rem;
+		.project-tech,
+		.project-card:nth-child(even) .project-tech {
+			justify-content: flex-start;
 		}
 
-		.wip-description {
-			font-size: 1rem;
+		.project-tech li,
+		.project-card:nth-child(even) .project-tech li {
+			margin: 0 20px 5px 0;
 		}
 
-		.feature-title {
-			font-size: 1.2rem;
+		section {
+			padding: 80px 0;
 		}
 
-		.feature-description {
-			font-size: 0.9rem;
-		}
-
-		.cta-button {
-			padding: 0.875rem 1.5rem;
-			font-size: 1rem;
+		.section-header::after {
+			width: 200px;
 		}
 	}
 </style>

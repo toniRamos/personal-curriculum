@@ -1,31 +1,29 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navigation from '../../components/Navigation.astro';
-import Social from '../../components/Social.astro';
-import Loader from '../../components/Loader.astro';
-import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <Layout title="Antonio Ramos - Frontend Engineer">
-	<Loader />
 	<Navigation />
-	<Social />
 	
 	<!-- Hero Section -->
 	<section id="hero" class="hero">
 		<div class="container">
 			<div class="hero-content">
-				<p class="intro">{t('hero.intro')}</p>
-				<h1 class="hero-title">{t('hero.name')}</h1>
-				<h2 class="hero-subtitle">{t('hero.subtitle')}</h2>
+				<p class="intro">Hola, mi nombre es</p>
+				<h1 class="hero-title">Antonio Ramos.</h1>
+				<h2 class="hero-subtitle">Creo experiencias digitales para la web.</h2>
 				<p class="hero-description">
-					{t('hero.description')} <a href="https://example.com" target="_blank">{t('hero.company')}</a>.
+					Soy un desarrollador frontend especializado en crear experiencias digitales accesibles 
+					y pixel-perfect. Actualmente, me enfoco en construir productos accesibles e inclusivos 
+					en <a href="https://example.com" target="_blank">@MiEmpresa</a>.
 				</p>
 				<div class="hero-cta">
-					<a href="#contact" class="cta-button">{t('hero.cta')}</a>
+					<a href="#contact" class="cta-button">¡Trabajemos juntos!</a>
 				</div>
 			</div>
 		</div>
@@ -36,20 +34,27 @@ const t = useTranslations(lang);
 		<div class="container">
 			<div class="section-header">
 				<h2 class="section-title">
-					<span class="section-number">{t('about.number')}</span>
-					{t('about.title')}
+					<span class="section-number">01.</span>
+					Acerca de mí
 				</h2>
 			</div>
 			<div class="about-content">
 				<div class="about-text">
 					<p>
-						{t('about.paragraphs.intro')}
+						¡Hola! Mi nombre es Antonio y disfruto creando cosas que viven en internet. 
+						Mi interés en el desarrollo web comenzó en 2012 cuando decidí intentar 
+						editar temas personalizados de Tumblr — resulta que hackear HTML y CSS 
+						me enseñó mucho sobre desarrollo web.
 					</p>
 					<p>
-						{t('about.paragraphs.experience')}
+						Avanzando rápido hasta hoy, y he tenido el privilegio de trabajar en una 
+						agencia de publicidad, una start-up, una gran corporación y un estudio de 
+						productos digitales. Mi enfoque principal en estos días es construir 
+						productos accesibles e inclusivos y experiencias digitales en una variedad 
+						de tecnologías.
 					</p>
 					<p>
-						{t('about.paragraphs.technologies')}
+						Aquí hay algunas tecnologías con las que he estado trabajando recientemente:
 					</p>
 					<ul class="skills-list">
 						<li>JavaScript (ES6+)</li>
@@ -76,8 +81,8 @@ const t = useTranslations(lang);
 		<div class="container">
 			<div class="section-header">
 				<h2 class="section-title">
-					<span class="section-number">{t('experience.number')}</span>
-					{t('experience.title')}
+					<span class="section-number">02.</span>
+					Donde he trabajado
 				</h2>
 			</div>
 			<div class="experience-content">
@@ -108,14 +113,14 @@ const t = useTranslations(lang);
 		<div class="container">
 			<div class="section-header">
 				<h2 class="section-title">
-					<span class="section-number">{t('projects.number')}</span>
-					{t('projects.title')}
+					<span class="section-number">03.</span>
+					Algunas cosas que he construido
 				</h2>
 			</div>
 			<div class="projects-content">
 				<div class="project-card featured">
 					<div class="project-content">
-						<p class="project-overline">{t('projects.featured')}</p>
+						<p class="project-overline">Proyecto Destacado</p>
 						<h3 class="project-title">
 							<a href="#" target="_blank">Spotify Profile</a>
 						</h3>
@@ -142,7 +147,7 @@ const t = useTranslations(lang);
 
 				<div class="project-card">
 					<div class="project-content">
-						<p class="project-overline">{t('projects.personal')}</p>
+						<p class="project-overline">Proyecto Personal</p>
 						<h3 class="project-title">
 							<a href="#" target="_blank">E-commerce Platform</a>
 						</h3>
@@ -174,16 +179,18 @@ const t = useTranslations(lang);
 		<div class="container">
 			<div class="section-header">
 				<h2 class="section-title">
-					<span class="section-number">{t('contact.number')}</span>
-					{t('contact.title')}
+					<span class="section-number">04.</span>
+					¿Qué sigue?
 				</h2>
 			</div>
 			<div class="contact-content">
-				<h2 class="contact-title">{t('contact.heading')}</h2>
+				<h2 class="contact-title">Ponte en contacto</h2>
 				<p class="contact-description">
-					{t('contact.description')}
+					Aunque no estoy buscando nuevas oportunidades en este momento, mi bandeja 
+					de entrada siempre está abierta. Ya sea que tengas una pregunta o simplemente 
+					quieras saludar, ¡haré todo lo posible por responderte!
 				</p>
-				<a href="mailto:antonio@example.com" class="contact-button">{t('contact.button')}</a>
+				<a href="mailto:antonio@example.com" class="contact-button">Salúdame</a>
 			</div>
 		</div>
 	</section>

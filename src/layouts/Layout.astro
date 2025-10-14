@@ -1,6 +1,4 @@
 ---
-import Header from '../components/Header.astro';
-
 export interface Props {
 	title?: string;
 }
@@ -14,36 +12,128 @@ const { title = "Mi Portfolio Personal" } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<meta name="description" content="Portfolio personal - Desarrollador Web" />
+		<meta name="description" content="Portfolio personal - Frontend Engineer" />
 	</head>
 	<body>
-		<Header />
-		<main class="main-content">
+		<div class="app">
 			<slot />
-		</main>
+		</div>
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		min-height: 100vh;
-		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-		line-height: 1.6;
-		background-color: #f8f9fa;
-	}
-
-	.main-content {
-		min-height: calc(100vh - 80px);
-		padding: 0;
-	}
-
+<style is:global>
 	* {
 		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		background-color: #0f172a;
+		color: #cbd5e1;
+		font-size: 16px;
+		line-height: 1.6;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		background-color: #0f172a;
+		color: #cbd5e1;
+		overflow-x: hidden;
+	}
+
+	.app {
+		min-height: 100vh;
+		position: relative;
+	}
+
+	/* Custom scrollbar */
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #1e293b;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #475569;
+		border-radius: 4px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: #64748b;
+	}
+
+	/* Selection colors */
+	::selection {
+		background-color: #64ffda;
+		color: #0f172a;
+	}
+
+	/* Links */
+	a {
+		color: #64ffda;
+		text-decoration: none;
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	a:hover {
+		color: #64ffda;
+		text-decoration: underline;
+		text-underline-offset: 4px;
+	}
+
+	/* Typography */
+	h1, h2, h3, h4, h5, h6 {
+		color: #e2e8f0;
+		font-weight: 600;
+		line-height: 1.1;
+	}
+
+	h1 {
+		font-size: clamp(40px, 8vw, 80px);
+		font-weight: 600;
+	}
+
+	h2 {
+		font-size: clamp(24px, 5vw, 32px);
+	}
+
+	h3 {
+		font-size: clamp(20px, 4vw, 24px);
+	}
+
+	p {
+		margin: 0 0 15px 0;
+		color: #8892b0;
+	}
+
+	code {
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		background-color: #112240;
+		color: #64ffda;
+		padding: 3px 5px;
+		border-radius: 3px;
+		font-size: 0.85em;
+	}
+
+	/* Responsive utilities */
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	@media (max-width: 768px) {
+		.container {
+			padding: 0 15px;
+		}
 	}
 </style>
