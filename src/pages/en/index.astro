@@ -290,9 +290,9 @@ const t = useTranslations(lang);
 	/* Scroll Reveal Animations */
 	.reveal-element {
 		opacity: 0;
-		transform: translateY(30px);
-		filter: blur(2px);
-		transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+		transform: translateY(20px);
+		filter: blur(1px);
+		transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 	}
 
 	.reveal-element.revealed {
@@ -852,7 +852,7 @@ const t = useTranslations(lang);
 					// Add revealed class with a small delay for smoother effect
 					setTimeout(() => {
 						entry.target.classList.add('revealed');
-					}, 100);
+					}, 50);
 					
 					// Stop observing this element once revealed
 					observer.unobserve(entry.target);
@@ -879,7 +879,7 @@ const t = useTranslations(lang);
 						// Staggered delay based on index
 						setTimeout(() => {
 							entry.target.classList.add('revealed');
-						}, 150 + (index * 100)); // 150ms base + 100ms per item
+						}, 75 + (index * 50)); // 75ms base + 50ms per item
 						
 						staggerObserver.unobserve(entry.target);
 					}
