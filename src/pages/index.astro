@@ -78,9 +78,11 @@ const t = useTranslations(lang);
 				</div>
 				<div class="about-image">
 					<div class="image-wrapper">
-						<div class="placeholder-image">
-							<span>Foto de Perfil</span>
-						</div>
+						<img 
+							src="/images/profile/profile-picture.jpg" 
+							alt="Antonio Ramos - Arquitecto de Software"
+							loading="lazy"
+						/>
 					</div>
 				</div>
 			</div>
@@ -430,7 +432,23 @@ const t = useTranslations(lang);
 		position: relative;
 		width: 100%;
 		border-radius: 4px;
-		background-color: #64ffda;
+	}
+
+	.image-wrapper img {
+		position: relative;
+		border-radius: 4px;
+		width: 100%;
+		height: auto;
+		max-height: 400px;
+		object-fit: contain;
+		filter: grayscale(100%) contrast(1) brightness(90%);
+		mix-blend-mode: multiply;
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	.about-image:hover .image-wrapper img {
+		filter: none;
+		mix-blend-mode: normal;
 	}
 
 	.placeholder-image {
