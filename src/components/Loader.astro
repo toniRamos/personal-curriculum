@@ -65,6 +65,8 @@
 			inset 0 0 20px rgba(100, 255, 218, 0.1);
 		opacity: 1;
 		transform: scale(1) rotate(0deg);
+		filter: blur(0px);
+		animation: blurPulse 3s ease-in-out infinite;
 	}
 
 	.logo-square.animate-entrance {
@@ -80,6 +82,8 @@
 		user-select: none;
 		opacity: 1;
 		transform: scale(1);
+		filter: blur(0px);
+		animation: textGlow 2s ease-in-out infinite alternate;
 	}
 
 	.logo-text.animate-entrance {
@@ -101,6 +105,19 @@
 		border-radius: 50%;
 		opacity: 0.6;
 		transform: scale(1);
+		animation: dotPulse 1.5s ease-in-out infinite;
+	}
+
+	.dot:nth-child(1) {
+		animation-delay: 0s;
+	}
+
+	.dot:nth-child(2) {
+		animation-delay: 0.3s;
+	}
+
+	.dot:nth-child(3) {
+		animation-delay: 0.6s;
 	}
 
 	.dot.animate-entrance {
@@ -122,10 +139,84 @@
 		opacity: 0;
 		transform: translateY(20px);
 	}
+
+	/* Animaciones CSS */
+	@keyframes blurPulse {
+		0% {
+			filter: blur(0px);
+			transform: scale(1);
+			box-shadow: 
+				0 0 20px rgba(100, 255, 218, 0.3),
+				inset 0 0 20px rgba(100, 255, 218, 0.1);
+		}
+		25% {
+			filter: blur(2px);
+			transform: scale(1.02);
+			box-shadow: 
+				0 0 30px rgba(100, 255, 218, 0.5),
+				inset 0 0 30px rgba(100, 255, 218, 0.2);
+		}
+		50% {
+			filter: blur(4px);
+			transform: scale(1.05);
+			box-shadow: 
+				0 0 40px rgba(100, 255, 218, 0.7),
+				inset 0 0 40px rgba(100, 255, 218, 0.3);
+		}
+		75% {
+			filter: blur(2px);
+			transform: scale(1.02);
+			box-shadow: 
+				0 0 30px rgba(100, 255, 218, 0.5),
+				inset 0 0 30px rgba(100, 255, 218, 0.2);
+		}
+		100% {
+			filter: blur(0px);
+			transform: scale(1);
+			box-shadow: 
+				0 0 20px rgba(100, 255, 218, 0.3),
+				inset 0 0 20px rgba(100, 255, 218, 0.1);
+		}
+	}
+
+	@keyframes textGlow {
+		0% {
+			filter: blur(0px);
+			text-shadow: 
+				0 0 10px rgba(100, 255, 218, 0.5),
+				0 0 20px rgba(100, 255, 218, 0.3);
+		}
+		50% {
+			filter: blur(1px);
+			text-shadow: 
+				0 0 20px rgba(100, 255, 218, 0.8),
+				0 0 30px rgba(100, 255, 218, 0.5),
+				0 0 40px rgba(100, 255, 218, 0.3);
+		}
+		100% {
+			filter: blur(0px);
+			text-shadow: 
+				0 0 10px rgba(100, 255, 218, 0.5),
+				0 0 20px rgba(100, 255, 218, 0.3);
+		}
+	}
+
+	@keyframes dotPulse {
+		0%, 100% {
+			opacity: 0.6;
+			transform: scale(1);
+			filter: blur(0px);
+		}
+		50% {
+			opacity: 1;
+			transform: scale(1.3);
+			filter: blur(1px);
+		}
+	}
 </style>
 
 <script>
-	// Enhanced loader animations with anime.js
+	// Enhanced loader with blur animations
 	let animationsStarted = false;
 	
 	function startAnimations() {
@@ -134,201 +225,109 @@
 		
 		console.log('Starting loader animations...');
 		
-		// Check if anime.js is loaded
-		if (typeof anime === 'undefined') {
-			console.warn('Anime.js not loaded, using fallback CSS animations');
-			fallbackAnimation();
-			return;
+		// Remove animate-entrance classes to show elements
+		document.querySelectorAll('.animate-entrance').forEach(el => {
+			el.classList.remove('animate-entrance');
+		});
+		
+		// Check if anime.js is loaded for enhanced animations
+		if (typeof anime !== 'undefined') {
+			console.log('Anime.js loaded, adding enhanced blur effects');
+			addEnhancedAnimations();
+		} else {
+			console.log('Using CSS animations only');
 		}
 		
-		console.log('Anime.js loaded, starting advanced animations');
-
-		// Remove animate-entrance classes and start with hidden state
-		document.querySelectorAll('.animate-entrance').forEach(el => {
-			el.classList.remove('animate-entrance');
-		});
-
-		// Set initial states for animation
-		anime.set('#logo-square', {
-			opacity: 0,
-			scale: 0.5,
-			rotate: 45
-		});
-		
-		anime.set('#logo-text', {
-			opacity: 0,
-			scale: 0
-		});
-		
-		anime.set('.dot', {
-			opacity: 0,
-			scale: 0
-		});
-		
-		anime.set('#loading-text', {
-			opacity: 0,
-			translateY: 20
-		});
-
-		// Main loading animation sequence
-		const animationTimeline = anime.timeline({
-			easing: 'easeOutExpo',
-			complete: () => {
-				console.log('Entrance animations complete');
-				setTimeout(exitAnimation, 1200);
-			}
-		});
-
-		// Logo square entrance
-		animationTimeline.add({
-			targets: '#logo-square',
-			opacity: [0, 1],
-			scale: [0.5, 1.1, 1],
-			rotate: [45, 0],
-			duration: 1000,
-			easing: 'easeOutElastic(1, 0.6)'
-		});
-
-		// Logo text entrance
-		animationTimeline.add({
-			targets: '#logo-text',
-			opacity: [0, 1],
-			scale: [0, 1.2, 1],
-			duration: 600,
-			easing: 'easeOutBack(1.7)',
-			offset: 400
-		});
-
-		// Loading dots animation
-		animationTimeline.add({
-			targets: '.dot',
-			scale: [0, 1],
-			opacity: [0, 1],
-			duration: 400,
-			delay: anime.stagger(150),
-			offset: 600
-		});
-
-		// Loading text entrance
-		animationTimeline.add({
-			targets: '#loading-text',
-			opacity: [0, 1],
-			translateY: [20, 0],
-			duration: 500,
-			easing: 'easeOutCubic',
-			offset: 800
-		});
-
-		// Continuous animations
+		// Auto-hide loader after showing animation
 		setTimeout(() => {
-			// Pulsing dots animation (continuous)
-			anime({
-				targets: '.dot',
-				scale: [1, 1.3, 1],
-				opacity: [1, 0.5, 1],
-				duration: 1000,
-				delay: anime.stagger(200),
-				loop: true,
-				direction: 'alternate',
-				easing: 'easeInOutSine'
-			});
-
-			// Glowing effect for logo square
-			anime({
-				targets: '#logo-square',
-				boxShadow: [
-					'0 0 20px rgba(100, 255, 218, 0.3), inset 0 0 20px rgba(100, 255, 218, 0.1)',
-					'0 0 40px rgba(100, 255, 218, 0.6), inset 0 0 30px rgba(100, 255, 218, 0.2)',
-					'0 0 20px rgba(100, 255, 218, 0.3), inset 0 0 20px rgba(100, 255, 218, 0.1)'
-				],
-				duration: 2000,
-				loop: true,
-				direction: 'alternate',
-				easing: 'easeInOutSine'
-			});
-		}, 1000);
+			hideLoader();
+		}, 4000); // Show for 4 seconds to enjoy the blur effect
 	}
 
-	function exitAnimation() {
-		console.log('Starting exit animation');
-		
-		// Stop all ongoing animations
-		anime.remove('.dot');
-		anime.remove('#logo-square');
-
-		// Exit sequence
-		const exitTimeline = anime.timeline({
-			complete: () => {
-				const loader = document.getElementById('loader');
-				if (loader) {
-					loader.style.display = 'none';
-					console.log('Loader hidden');
-				}
-			}
-		});
-
-		// Animate elements out
-		exitTimeline.add({
-			targets: '#loading-text',
-			opacity: [1, 0],
-			translateY: [0, -20],
-			duration: 300,
-			easing: 'easeInCubic'
-		});
-
-		exitTimeline.add({
-			targets: '.dot',
-			scale: [1, 0],
-			opacity: [1, 0],
-			duration: 300,
-			delay: anime.stagger(100),
-			offset: 100
-		});
-
-		exitTimeline.add({
-			targets: '#logo-text',
-			opacity: [1, 0],
-			scale: [1, 0.8],
-			duration: 400,
-			easing: 'easeInBack(1.7)',
-			offset: 200
-		});
-
-		exitTimeline.add({
+	function addEnhancedAnimations() {
+		// Enhanced blur animation with anime.js
+		anime({
 			targets: '#logo-square',
-			opacity: [1, 0],
-			scale: [1, 0.5],
-			rotate: [0, 180],
-			duration: 600,
-			easing: 'easeInExpo',
-			offset: 300
+			filter: [
+				'blur(0px)',
+				'blur(8px)',
+				'blur(0px)',
+				'blur(4px)',
+				'blur(0px)'
+			],
+			scale: [1, 1.1, 1, 1.05, 1],
+			duration: 3000,
+			easing: 'easeInOutSine',
+			loop: true
 		});
 
-		exitTimeline.add({
-			targets: '#loader',
-			opacity: [1, 0],
-			duration: 400,
-			easing: 'easeInCubic',
-			offset: 600
+		// Enhanced text glow with anime.js
+		anime({
+			targets: '#logo-text',
+			filter: [
+				'blur(0px)',
+				'blur(2px)',
+				'blur(0px)'
+			],
+			textShadow: [
+				'0 0 10px rgba(100, 255, 218, 0.5)',
+				'0 0 30px rgba(100, 255, 218, 0.9)',
+				'0 0 10px rgba(100, 255, 218, 0.5)'
+			],
+			duration: 2000,
+			easing: 'easeInOutSine',
+			loop: true,
+			direction: 'alternate'
+		});
+
+		// Dots with staggered blur
+		anime({
+			targets: '.dot',
+			filter: [
+				'blur(0px)',
+				'blur(3px)',
+				'blur(0px)'
+			],
+			scale: [1, 1.5, 1],
+			opacity: [0.6, 1, 0.6],
+			duration: 1500,
+			delay: anime.stagger(200),
+			easing: 'easeInOutQuad',
+			loop: true,
+			direction: 'alternate'
 		});
 	}
 
-	function fallbackAnimation() {
-		console.log('Using fallback animation');
-		// Remove animation classes to show elements
-		document.querySelectorAll('.animate-entrance').forEach(el => {
-			el.classList.remove('animate-entrance');
-		});
+	function hideLoader() {
+		console.log('Hiding loader...');
 		
-		// Simple fallback
-		const loader = document.getElementById('loader');
-		if (loader) {
-			setTimeout(() => {
+		if (typeof anime !== 'undefined') {
+			// Animate out with anime.js
+			anime.remove('*'); // Stop all animations
+			
+			anime({
+				targets: '#loader',
+				opacity: [1, 0],
+				scale: [1, 0.9],
+				filter: ['blur(0px)', 'blur(10px)'],
+				duration: 800,
+				easing: 'easeInExpo',
+				complete: () => {
+					const loader = document.getElementById('loader');
+					if (loader) {
+						loader.style.display = 'none';
+					}
+				}
+			});
+		} else {
+			// Fallback CSS animation
+			const loader = document.getElementById('loader');
+			if (loader) {
 				loader.classList.add('fade-out');
 				setTimeout(() => {
 					loader.style.display = 'none';
 				}, 600);
-			}, 2000);
+			}
 		}
 	}
 
