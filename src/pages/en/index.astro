@@ -155,9 +155,11 @@ const t = useTranslations('en');
 						</div>
 					</div>
 					<div class="project-image">
-						<div class="placeholder-project">
-							<span>Project Image</span>
-						</div>
+						<img 
+							src="/images/projects/portfolio-screenshot.png" 
+							alt="Personal Portfolio Screenshot"
+							loading="lazy"
+						/>
 					</div>
 				</div>
 
@@ -679,6 +681,25 @@ const t = useTranslations('en');
 		grid-area: 1 / 6 / -1 / -1;
 		position: relative;
 		z-index: 1;
+	}
+
+	.project-image img {
+		width: 100%;
+		height: auto;
+		max-height: 300px;
+		object-fit: cover;
+		border-radius: 8px;
+		filter: grayscale(100%) contrast(1) brightness(90%) blur(0.5px);
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+		mix-blend-mode: multiply;
+		box-shadow: 0 4px 20px rgba(2, 12, 27, 0.4);
+	}
+
+	.project-card:hover .project-image img {
+		filter: blur(0px);
+		mix-blend-mode: normal;
+		transform: translateY(-2px);
+		box-shadow: 0 8px 30px rgba(2, 12, 27, 0.6);
 	}
 
 	.placeholder-project {
