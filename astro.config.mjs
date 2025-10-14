@@ -9,5 +9,7 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false
     }
-  }
+  },
+  site: 'https://toniramos.github.io/',
+  base: '/personal-curriculum',
 });
