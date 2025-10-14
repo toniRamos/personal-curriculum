@@ -1,0 +1,618 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+import { siteConfig } from '../config/site';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={siteConfig.title}>
+	<Navigation />
+	
+	<!-- Hero Section -->
+	<section id="hero" class="hero">
+		<div class="container">
+			<div class="hero-content">
+				<p class="intro">Hola, mi nombre es</p>
+				<h1 class="hero-title">Antonio Ramos.</h1>
+				<h2 class="hero-subtitle">Creo experiencias digitales para la web.</h2>
+				<p class="hero-description">
+					Soy un desarrollador frontend especializado en crear experiencias digitales accesibles 
+					y pixel-perfect. Actualmente, me enfoco en construir productos accesibles e inclusivos 
+					en <a href="https://example.com" target="_blank">@MiEmpresa</a>.
+				</p>
+				<div class="hero-cta">
+					<a href="#contact" class="cta-button">¡Trabajemos juntos!</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<section id="about" class="about">
+		<div class="container">
+			<div class="section-header">
+				<h2 class="section-title">
+					<span class="section-number">01.</span>
+					Acerca de mí
+				</h2>
+			</div>
+			<div class="about-content">
+				<div class="about-text">
+					<p>
+						¡Hola! Mi nombre es Antonio y disfruto creando cosas que viven en internet. 
+						Mi interés en el desarrollo web comenzó en 2012 cuando decidí intentar 
+						editar temas personalizados de Tumblr — resulta que hackear HTML y CSS 
+						me enseñó mucho sobre desarrollo web.
+					</p>
+					<p>
+						Avanzando rápido hasta hoy, y he tenido el privilegio de trabajar en una 
+						agencia de publicidad, una start-up, una gran corporación y un estudio de 
+						productos digitales. Mi enfoque principal en estos días es construir 
+						productos accesibles e inclusivos y experiencias digitales en una variedad 
+						de tecnologías.
+					</p>
+					<p>
+						Aquí hay algunas tecnologías con las que he estado trabajando recientemente:
+					</p>
+					<ul class="skills-list">
+						<li>JavaScript (ES6+)</li>
+						<li>TypeScript</li>
+						<li>React</li>
+						<li>Node.js</li>
+						<li>Vue.js</li>
+						<li>Astro</li>
+					</ul>
+				</div>
+				<div class="about-image">
+					<div class="image-wrapper">
+						<div class="placeholder-image">
+							<span>Foto de Perfil</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Experience Section -->
+	<section id="experience" class="experience">
+		<div class="container">
+			<div class="section-header">
+				<h2 class="section-title">
+					<span class="section-number">02.</span>
+					Donde he trabajado
+				</h2>
+			</div>
+			<div class="experience-content">
+				<div class="job">
+					<h3>Senior Frontend Engineer <span class="company">@ MiEmpresa</span></h3>
+					<p class="job-duration">Enero 2022 - Presente</p>
+					<ul class="job-responsibilities">
+						<li>Desarrollo y mantenimiento de componentes críticos para el frontend de la empresa</li>
+						<li>Trabajo estrecho con equipos multifuncionales para implementar las mejores prácticas</li>
+						<li>Construcción de productos accesibles e inclusivos</li>
+					</ul>
+				</div>
+				<div class="job">
+					<h3>Frontend Developer <span class="company">@ StartupTech</span></h3>
+					<p class="job-duration">Junio 2020 - Diciembre 2021</p>
+					<ul class="job-responsibilities">
+						<li>Desarrollé interfaces de usuario responsive y optimizadas para múltiples dispositivos</li>
+						<li>Colaboré con diseñadores UX/UI para implementar designs pixel-perfect</li>
+						<li>Implementé mejores prácticas de rendimiento web y SEO</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Projects Section -->
+	<section id="projects" class="projects">
+		<div class="container">
+			<div class="section-header">
+				<h2 class="section-title">
+					<span class="section-number">03.</span>
+					Algunas cosas que he construido
+				</h2>
+			</div>
+			<div class="projects-content">
+				<div class="project-card featured">
+					<div class="project-content">
+						<p class="project-overline">Proyecto Destacado</p>
+						<h3 class="project-title">
+							<a href="#" target="_blank">Spotify Profile</a>
+						</h3>
+						<div class="project-description">
+							<p>
+								Una aplicación web para visualizar datos personalizados de Spotify. Ve tus 
+								artistas principales, pistas principales, pistas reproducidas recientemente 
+								e información detallada sobre cada pista.
+							</p>
+						</div>
+						<ul class="project-tech">
+							<li>React</li>
+							<li>Express</li>
+							<li>Spotify API</li>
+							<li>Styled Components</li>
+						</ul>
+					</div>
+					<div class="project-image">
+						<div class="placeholder-project">
+							<span>Imagen del Proyecto</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="project-card">
+					<div class="project-content">
+						<p class="project-overline">Proyecto Personal</p>
+						<h3 class="project-title">
+							<a href="#" target="_blank">E-commerce Platform</a>
+						</h3>
+						<div class="project-description">
+							<p>
+								Plataforma de comercio electrónico completa con carrito de compras, 
+								procesamiento de pagos, gestión de inventario y panel de administración.
+							</p>
+						</div>
+						<ul class="project-tech">
+							<li>Next.js</li>
+							<li>Node.js</li>
+							<li>MongoDB</li>
+							<li>Stripe API</li>
+						</ul>
+					</div>
+					<div class="project-image">
+						<div class="placeholder-project">
+							<span>Imagen del Proyecto</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact" class="contact">
+		<div class="container">
+			<div class="section-header">
+				<h2 class="section-title">
+					<span class="section-number">04.</span>
+					¿Qué sigue?
+				</h2>
+			</div>
+			<div class="contact-content">
+				<h2 class="contact-title">Ponte en contacto</h2>
+				<p class="contact-description">
+					Aunque no estoy buscando nuevas oportunidades en este momento, mi bandeja 
+					de entrada siempre está abierta. Ya sea que tengas una pregunta o simplemente 
+					quieras saludar, ¡haré todo lo posible por responderte!
+				</p>
+				<a href={`mailto:${siteConfig.email}`} class="contact-button">Salúdame</a>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	/* Hero Section */
+	.hero {
+		display: flex;
+		align-items: center;
+		min-height: 100vh;
+		padding-top: 100px;
+	}
+
+	.hero-content {
+		max-width: 1000px;
+	}
+
+	.intro {
+		margin: 0 0 20px 4px;
+		color: #64ffda;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 16px;
+		font-weight: 400;
+	}
+
+	.hero-title {
+		margin: 0;
+		font-size: clamp(40px, 8vw, 80px);
+		line-height: 1.1;
+		color: #ccd6f6;
+		font-weight: 600;
+	}
+
+	.hero-subtitle {
+		margin: 0;
+		font-size: clamp(40px, 8vw, 80px);
+		line-height: 1.1;
+		color: #8892b0;
+		font-weight: 600;
+	}
+
+	.hero-description {
+		margin: 20px 0 0 0;
+		max-width: 540px;
+		font-size: 20px;
+		line-height: 1.3;
+	}
+
+	.hero-cta {
+		margin-top: 50px;
+	}
+
+	.cta-button {
+		color: #64ffda;
+		background-color: transparent;
+		border: 1px solid #64ffda;
+		border-radius: 4px;
+		padding: 20px 28px;
+		font-size: 14px;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		line-height: 1;
+		text-decoration: none;
+		cursor: pointer;
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+		display: inline-block;
+	}
+
+	.cta-button:hover {
+		background-color: rgba(100, 255, 218, 0.1);
+		transform: translate3d(0, -2px, 0);
+		text-decoration: none;
+	}
+
+	/* Section Styles */
+	section {
+		margin: 0 auto;
+		padding: 100px 0;
+		max-width: 1000px;
+	}
+
+	.section-header {
+		display: flex;
+		align-items: center;
+		position: relative;
+		margin: 10px 0 40px;
+		width: 100%;
+		white-space: nowrap;
+	}
+
+	.section-title {
+		margin: 0;
+		font-size: clamp(24px, 5vw, 32px);
+		font-weight: 600;
+		color: #ccd6f6;
+		line-height: 1.1;
+	}
+
+	.section-number {
+		margin-right: 10px;
+		color: #64ffda;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: clamp(14px, 3vw, 20px);
+		font-weight: 400;
+	}
+
+	.section-header::after {
+		content: '';
+		display: block;
+		position: relative;
+		top: -5px;
+		width: 300px;
+		height: 1px;
+		margin-left: 20px;
+		background-color: #233554;
+	}
+
+	/* About Section */
+	.about-content {
+		display: grid;
+		grid-template-columns: 3fr 2fr;
+		grid-gap: 50px;
+	}
+
+	.about-text p {
+		margin-bottom: 15px;
+	}
+
+	.skills-list {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(140px, 200px));
+		grid-gap: 0 10px;
+		padding: 0;
+		margin: 20px 0 0 0;
+		overflow: hidden;
+		list-style: none;
+	}
+
+	.skills-list li {
+		position: relative;
+		margin-bottom: 10px;
+		padding-left: 20px;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 13px;
+		color: #8892b0;
+	}
+
+	.skills-list li::before {
+		content: '▹';
+		position: absolute;
+		left: 0;
+		color: #64ffda;
+		font-size: 14px;
+		line-height: 12px;
+	}
+
+	.about-image {
+		position: relative;
+		max-width: 300px;
+	}
+
+	.image-wrapper {
+		position: relative;
+		width: 100%;
+		border-radius: 4px;
+		background-color: #64ffda;
+	}
+
+	.placeholder-image {
+		position: relative;
+		border-radius: 4px;
+		background-color: #112240;
+		color: #64ffda;
+		width: 100%;
+		height: 300px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 14px;
+	}
+
+	/* Experience Section */
+	.job {
+		margin-bottom: 40px;
+	}
+
+	.job h3 {
+		margin-bottom: 5px;
+		font-size: 22px;
+		font-weight: 500;
+		color: #ccd6f6;
+	}
+
+	.company {
+		color: #64ffda;
+	}
+
+	.job-duration {
+		margin-bottom: 25px;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 13px;
+		color: #8892b0;
+	}
+
+	.job-responsibilities {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	.job-responsibilities li {
+		position: relative;
+		padding-left: 30px;
+		margin-bottom: 10px;
+		color: #8892b0;
+		font-size: 18px;
+	}
+
+	.job-responsibilities li::before {
+		content: '▹';
+		position: absolute;
+		left: 0;
+		color: #64ffda;
+		font-size: 14px;
+		line-height: 12px;
+	}
+
+	/* Projects Section */
+	.project-card {
+		position: relative;
+		display: grid;
+		grid-gap: 10px;
+		grid-template-columns: repeat(12, 1fr);
+		align-items: center;
+		margin-bottom: 100px;
+	}
+
+	.project-card:nth-child(even) .project-content {
+		grid-column: 7 / -1;
+		text-align: right;
+	}
+
+	.project-card:nth-child(even) .project-image {
+		grid-column: 1 / 8;
+	}
+
+	.project-content {
+		position: relative;
+		grid-area: 1 / 1 / -1 / 7;
+	}
+
+	.project-overline {
+		margin: 10px 0;
+		color: #64ffda;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 13px;
+		font-weight: 400;
+	}
+
+	.project-title {
+		color: #ccd6f6;
+		font-size: clamp(24px, 5vw, 28px);
+		margin: 0 0 20px;
+	}
+
+	.project-title a {
+		color: inherit;
+	}
+
+	.project-description {
+		position: relative;
+		z-index: 2;
+		padding: 25px;
+		border-radius: 4px;
+		background-color: #112240;
+		color: #a8b2d1;
+		font-size: 18px;
+		box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+	}
+
+	.project-description p {
+		margin: 0;
+	}
+
+	.project-tech {
+		display: flex;
+		flex-wrap: wrap;
+		position: relative;
+		z-index: 2;
+		margin: 25px 0 10px;
+		padding: 0;
+		list-style: none;
+	}
+
+	.project-tech li {
+		margin: 0 20px 5px 0;
+		color: #8892b0;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 13px;
+		white-space: nowrap;
+	}
+
+	.project-card:nth-child(even) .project-tech {
+		justify-content: flex-end;
+	}
+
+	.project-card:nth-child(even) .project-tech li {
+		margin: 0 0 5px 20px;
+	}
+
+	.project-image {
+		grid-area: 1 / 6 / -1 / -1;
+		position: relative;
+		z-index: 1;
+	}
+
+	.placeholder-project {
+		width: 100%;
+		height: 300px;
+		background-color: #112240;
+		border-radius: 4px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #64ffda;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 14px;
+	}
+
+	/* Contact Section */
+	.contact {
+		max-width: 600px;
+		margin: 0 auto 100px;
+		text-align: center;
+	}
+
+	.contact-title {
+		display: block;
+		margin-bottom: 20px;
+		font-size: clamp(40px, 5vw, 60px);
+		color: #ccd6f6;
+	}
+
+	.contact-description {
+		margin-bottom: 50px;
+		color: #8892b0;
+		font-size: 20px;
+	}
+
+	.contact-button {
+		color: #64ffda;
+		background-color: transparent;
+		border: 1px solid #64ffda;
+		border-radius: 4px;
+		padding: 20px 28px;
+		font-size: 14px;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		line-height: 1;
+		text-decoration: none;
+		cursor: pointer;
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+		display: inline-block;
+	}
+
+	.contact-button:hover {
+		background-color: rgba(100, 255, 218, 0.1);
+		transform: translate3d(0, -2px, 0);
+		text-decoration: none;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.hero {
+			padding-top: 100px;
+		}
+
+		.about-content {
+			display: block;
+		}
+
+		.about-image {
+			margin: 50px auto 0;
+			width: 70%;
+		}
+
+		.project-card {
+			grid-template-columns: 1fr;
+		}
+
+		.project-content,
+		.project-card:nth-child(even) .project-content {
+			grid-column: 1 / -1;
+			padding: 40px 40px 30px;
+			z-index: 5;
+			text-align: left;
+		}
+
+		.project-image,
+		.project-card:nth-child(even) .project-image {
+			grid-column: 1 / -1;
+			height: 100%;
+			opacity: 0.25;
+		}
+
+		.project-tech,
+		.project-card:nth-child(even) .project-tech {
+			justify-content: flex-start;
+		}
+
+		.project-tech li,
+		.project-card:nth-child(even) .project-tech li {
+			margin: 0 20px 5px 0;
+		}
+
+		section {
+			padding: 80px 0;
+		}
+
+		.section-header::after {
+			width: 200px;
+		}
+	}
+</style>
