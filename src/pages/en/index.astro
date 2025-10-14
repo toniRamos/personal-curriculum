@@ -83,19 +83,24 @@ const t = useTranslations(lang);
 			</div>
 			<div class="experience-content">
 				{t('experience.jobs').map((job, index) => (
-					<div class="job" key={index}>
-						<h3>{job.title} <span class="company">@ {job.company}</span></h3>
-						<p class="job-duration">{job.duration}</p>
-						<p class="job-location">{job.location}</p>
-						<ul class="job-responsibilities">
-							{job.responsibilities.map((responsibility, respIndex) => (
-								<li key={respIndex}>{responsibility}</li>
-							))}
-						</ul>
-						<div class="job-technologies">
-							{job.technologies.map((tech, techIndex) => (
-								<span class="tech-tag" key={techIndex}>{tech}</span>
-							))}
+					<div class="job-card" key={index}>
+						<div class="job-content">
+							<h3>{job.title} <span class="company">@ {job.company}</span></h3>
+							<p class="job-duration">{job.duration}</p>
+							<p class="job-location">{job.location}</p>
+							<ul class="job-responsibilities">
+								{job.responsibilities.map((responsibility, respIndex) => (
+									<li key={respIndex}>{responsibility}</li>
+								))}
+							</ul>
+							<div class="job-technologies">
+								{job.technologies.map((tech, techIndex) => (
+									<span class="tech-tag" key={techIndex}>{tech}</span>
+								))}
+							</div>
+						</div>
+						<div class="job-highlight">
+							<div class="job-company-name">{job.company}</div>
 						</div>
 					</div>
 				))}
@@ -367,12 +372,36 @@ const t = useTranslations(lang);
 	}
 
 	/* Experience Section */
-	.job {
-		margin-bottom: 40px;
+	.job-card {
+		position: relative;
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(12, 1fr);
+		align-items: center;
+		margin-bottom: 80px;
+		padding: 30px 0;
 	}
 
-	.job h3 {
-		margin-bottom: 5px;
+	.job-card:nth-child(even) .job-content {
+		grid-column: 4 / -1;
+		text-align: right;
+	}
+
+	.job-card:nth-child(even) .job-highlight {
+		grid-column: 1 / 3;
+	}
+
+	.job-card:nth-child(even) .job-technologies {
+		justify-content: flex-end;
+	}
+
+	.job-content {
+		position: relative;
+		grid-area: 1 / 1 / -1 / 10;
+	}
+
+	.job-content h3 {
+		margin-bottom: 10px;
 		font-size: 22px;
 		font-weight: 500;
 		color: #ccd6f6;
@@ -398,9 +427,14 @@ const t = useTranslations(lang);
 	}
 
 	.job-responsibilities {
-		padding: 0;
-		margin: 0 0 20px 0;
+		background-color: #112240;
+		box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+		padding: 25px;
+		border-radius: 4px;
+		margin: 20px 0;
 		list-style: none;
+		position: relative;
+		z-index: 2;
 	}
 
 	.job-responsibilities li {
@@ -408,7 +442,8 @@ const t = useTranslations(lang);
 		padding-left: 30px;
 		margin-bottom: 10px;
 		color: #8892b0;
-		font-size: 18px;
+		font-size: 16px;
+		line-height: 1.4;
 	}
 
 	.job-responsibilities li::before {
@@ -417,7 +452,7 @@ const t = useTranslations(lang);
 		left: 0;
 		color: #64ffda;
 		font-size: 14px;
-		line-height: 12px;
+		line-height: 16px;
 	}
 
 	.job-technologies {
@@ -425,6 +460,8 @@ const t = useTranslations(lang);
 		flex-wrap: wrap;
 		gap: 8px;
 		margin-top: 15px;
+		position: relative;
+		z-index: 2;
 	}
 
 	.tech-tag {
@@ -441,6 +478,35 @@ const t = useTranslations(lang);
 	.tech-tag:hover {
 		background-color: rgba(100, 255, 218, 0.2);
 		transform: translateY(-2px);
+	}
+
+	.job-highlight {
+		grid-area: 1 / 11 / -1 / -1;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.job-company-name {
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 24px;
+		font-weight: 600;
+		color: #64ffda;
+		text-align: center;
+		line-height: 1.2;
+		writing-mode: vertical-rl;
+		text-orientation: mixed;
+		letter-spacing: 3px;
+		text-transform: uppercase;
+		opacity: 0.8;
+		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	.job-card:hover .job-company-name {
+		opacity: 1;
+		color: #64ffda;
+		transform: scale(1.05);
 	}
 
 	/* Projects Section */
@@ -599,6 +665,36 @@ const t = useTranslations(lang);
 		.about-image {
 			margin: 50px auto 0;
 			width: 70%;
+		}
+
+		.job-card {
+			grid-template-columns: 1fr;
+			margin-bottom: 40px;
+		}
+
+		.job-content,
+		.job-card:nth-child(even) .job-content {
+			grid-column: 1 / -1;
+			text-align: left;
+		}
+
+		.job-highlight,
+		.job-card:nth-child(even) .job-highlight {
+			grid-column: 1 / -1;
+			margin-top: 20px;
+			justify-content: flex-start;
+		}
+
+		.job-technologies,
+		.job-card:nth-child(even) .job-technologies {
+			justify-content: flex-start;
+		}
+
+		.job-company-name {
+			font-size: 18px;
+			writing-mode: horizontal-tb;
+			text-orientation: unset;
+			letter-spacing: 1px;
 		}
 
 		.project-card {
