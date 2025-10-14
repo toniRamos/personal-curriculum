@@ -21,9 +21,12 @@
     "title": "About me",
     "number": "01.",
     "paragraphs": {
-      "intro": "Hello! My name is Antonio and I enjoy creating things that live on the internet. My interest in web development started back in 2012 when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS taught me a lot about web development!",
-      "experience": "Fast-forward to today, and I've had the privilege of working at an advertising agency, a start-up, a huge corporation, and a digital product studio. My main focus these days is building accessible, inclusive products and digital experiences at a variety of companies.",
-      "technologies": "Here are a few technologies I've been working with recently:"
+      "intro": "As a Software Architect with over 10 years of experience, I specialize in designing scalable and maintainable systems that empower product teams to move fast without breaking things.",
+      "journey": "My technical journey has been shaped by a passion for clean code, domain-driven design (DDD), and crafting architectures that are both resilient and business-aligned.",
+      "expertise": "What I bring to the table:",
+      "skills": "Deep expertise in JavaScript, Node.js, React, and modern frontend/backend ecosystems. Architecture patterns: Hexagonal, Clean Architecture, and event-driven systems. Real-world experience with Microservices, Redis, MongoDB, Swagger, CI/CD pipelines. Strong leadership, mentoring, and cross-team collaboration skills. Focus on developer experience, scalability, and long-term maintainability.",
+      "experience": "I've worked across startups and large enterprises, often acting as the bridge between business goals and technical solutions. I believe software architecture is not just about diagrams - it's about enabling teams to ship value continuously.",
+      "conclusion": "Let's build great systems - and great teams - together."
     }
   },
   "experience": {
@@ -153,7 +156,15 @@
     "pageSubtitle": "Learn more about me and my professional journey",
     "sections": {
       "about": {
-        "title": "📋 About Me"
+        "title": "📋 About Me",
+        "content": {
+          "intro": "As a Software Architect with over 10 years of experience, I specialize in designing scalable and maintainable systems that empower product teams to move fast without breaking things.",
+          "journey": "My technical journey has been shaped by a passion for clean code, domain-driven design (DDD), and crafting architectures that are both resilient and business-aligned.",
+          "expertise": "What I bring to the table:",
+          "skills": "Deep expertise in JavaScript, Node.js, React, and modern frontend/backend ecosystems. Architecture patterns: Hexagonal, Clean Architecture, and event-driven systems. Real-world experience with Microservices, Redis, MongoDB, Swagger, CI/CD pipelines. Strong leadership, mentoring, and cross-team collaboration skills. Focus on developer experience, scalability, and long-term maintainability.",
+          "experience": "I've worked across startups and large enterprises, often acting as the bridge between business goals and technical solutions. I believe software architecture is not just about diagrams - it's about enabling teams to ship value continuously.",
+          "conclusion": "Let's build great systems - and great teams - together."
+        }
       },
       "specialties": {
         "title": "🎯 Specialties"

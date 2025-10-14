@@ -16,9 +16,14 @@ const t = useTranslations('en');
 			<div class="content-grid">
 				<section class="info-card">
 					<h2 class="card-title">{t('personalInfo.sections.about.title')}</h2>
-					<p class="card-content">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-					</p>
+					<div class="card-content">
+						<p>{t('personalInfo.sections.about.content.intro')}</p>
+						<p>{t('personalInfo.sections.about.content.journey')}</p>
+						<p class="expertise-intro">{t('personalInfo.sections.about.content.expertise')}</p>
+						<p>{t('personalInfo.sections.about.content.skills')}</p>
+						<p>{t('personalInfo.sections.about.content.experience')}</p>
+						<p class="conclusion"><strong>{t('personalInfo.sections.about.content.conclusion')}</strong></p>
+					</div>
 				</section>
 
 				<section class="info-card">
@@ -181,6 +186,27 @@ const t = useTranslations('en');
 		color: #666;
 		line-height: 1.7;
 		margin: 0;
+	}
+
+	.card-content p {
+		margin-bottom: 1rem;
+	}
+
+	.card-content .expertise-intro {
+		font-weight: 600;
+		color: #64ffda;
+		margin-top: 1.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.card-content .conclusion {
+		margin-top: 1.5rem;
+		margin-bottom: 0;
+	}
+
+	.card-content .conclusion strong {
+		color: #64ffda;
+		font-weight: 600;
 	}
 
 	.skills-list {

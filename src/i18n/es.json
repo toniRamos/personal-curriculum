@@ -21,9 +21,12 @@
     "title": "Acerca de mí",
     "number": "01.",
     "paragraphs": {
-      "intro": "¡Hola! Mi nombre es Antonio y disfruto creando cosas que viven en internet. Mi interés en el desarrollo web comenzó en 2012 cuando decidí intentar editar temas personalizados de Tumblr — resulta que hackear HTML y CSS me enseñó mucho sobre desarrollo web.",
-      "experience": "Avanzando rápido hasta hoy, y he tenido el privilegio de trabajar en una agencia de publicidad, una start-up, una gran corporación y un estudio de productos digitales. Mi enfoque principal en estos días es construir productos accesibles e inclusivos y experiencias digitales en una variedad de tecnologías.",
-      "technologies": "Aquí hay algunas tecnologías con las que he estado trabajando recientemente:"
+      "intro": "Como Arquitecto de Software con más de 10 años de experiencia, me especializo en diseñar sistemas escalables y mantenibles que permiten a los equipos de producto avanzar rápido sin romper nada.",
+      "journey": "Mi trayectoria técnica ha sido moldeada por la pasión por el código limpio, el diseño dirigido por dominio (DDD) y la creación de arquitecturas que son tanto resistentes como alineadas con el negocio.",
+      "expertise": "Lo que aporto:",
+      "skills": "Experiencia profunda en JavaScript, Node.js, React y ecosistemas modernos de frontend/backend. Patrones de arquitectura: Hexagonal, Clean Architecture y sistemas dirigidos por eventos. Experiencia real con Microservicios, Redis, MongoDB, Swagger, pipelines CI/CD. Sólidas habilidades de liderazgo, mentoría y colaboración entre equipos. Enfoque en experiencia del desarrollador, escalabilidad y mantenibilidad a largo plazo.",
+      "experience": "He trabajado en startups y grandes empresas, a menudo actuando como puente entre los objetivos del negocio y las soluciones técnicas. Creo que la arquitectura de software no se trata solo de diagramas - se trata de permitir que los equipos entreguen valor continuamente.",
+      "conclusion": "Construyamos juntos grandes sistemas - y grandes equipos."
     }
   },
   "experience": {
@@ -153,7 +156,15 @@
     "pageSubtitle": "Conoce más sobre mí y mi trayectoria profesional",
     "sections": {
       "about": {
-        "title": "📋 Sobre Mí"
+        "title": "📋 Sobre Mí",
+        "content": {
+          "intro": "Como Arquitecto de Software con más de 10 años de experiencia, me especializo en diseñar sistemas escalables y mantenibles que permiten a los equipos de producto avanzar rápido sin romper nada.",
+          "journey": "Mi trayectoria técnica ha sido moldeada por la pasión por el código limpio, el diseño dirigido por dominio (DDD) y la creación de arquitecturas que son tanto resistentes como alineadas con el negocio.",
+          "expertise": "Lo que aporto:",
+          "skills": "Experiencia profunda en JavaScript, Node.js, React y ecosistemas modernos de frontend/backend. Patrones de arquitectura: Hexagonal, Clean Architecture y sistemas dirigidos por eventos. Experiencia real con Microservicios, Redis, MongoDB, Swagger, pipelines CI/CD. Sólidas habilidades de liderazgo, mentoría y colaboración entre equipos. Enfoque en experiencia del desarrollador, escalabilidad y mantenibilidad a largo plazo.",
+          "experience": "He trabajado en startups y grandes empresas, a menudo actuando como puente entre los objetivos del negocio y las soluciones técnicas. Creo que la arquitectura de software no se trata solo de diagramas - se trata de permitir que los equipos entreguen valor continuamente.",
+          "conclusion": "Construyamos juntos grandes sistemas - y grandes equipos."
+        }
       },
       "specialties": {
         "title": "🎯 Especialidades"
