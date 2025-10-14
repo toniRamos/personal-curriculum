@@ -1,12 +1,19 @@
 ---
-// Loader component similar to Brittany Chiang's portfolio
+// Enhanced Loader component with anime.js animations
 ---
 
 <div class="loader-wrapper" id="loader">
 	<div class="loader">
 		<div class="loader-logo">
-			<div class="logo-square">
-				<span class="logo-text">AR</span>
+			<div class="logo-container">
+				<div class="logo-square animate-entrance" id="logo-square">
+					<span class="logo-text animate-entrance" id="logo-text">AR</span>
+				</div>
+				<div class="loading-dots">
+					<div class="dot animate-entrance" id="dot1"></div>
+					<div class="dot animate-entrance" id="dot2"></div>
+					<div class="dot animate-entrance" id="dot3"></div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -19,12 +26,12 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: #0a192f;
+		background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
 		z-index: 9999;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+		transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
 	}
 
 	.loader-wrapper.fade-out {
@@ -33,56 +40,302 @@
 	}
 
 	.loader {
-		max-width: 100px;
-		width: 100%;
-		color: #64ffda;
 		text-align: center;
+		color: #64ffda;
 	}
 
-	.loader-logo {
-		animation: fade-in 1s ease-in-out 0.5s both;
+	.logo-container {
+		position: relative;
+		margin-bottom: 30px;
 	}
 
 	.logo-square {
-		width: 80px;
-		height: 80px;
+		width: 100px;
+		height: 100px;
 		border: 3px solid #64ffda;
-		border-radius: 4px;
+		border-radius: 8px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin: 0 auto;
+		margin: 0 auto 20px;
+		position: relative;
+		background: rgba(100, 255, 218, 0.05);
+		box-shadow: 
+			0 0 20px rgba(100, 255, 218, 0.3),
+			inset 0 0 20px rgba(100, 255, 218, 0.1);
+		opacity: 1;
+		transform: scale(1) rotate(0deg);
+	}
+
+	.logo-square.animate-entrance {
+		opacity: 0;
+		transform: scale(0.5) rotate(45deg);
 	}
 
 	.logo-text {
 		color: #64ffda;
-		font-size: 28px;
-		font-weight: 400;
+		font-size: 36px;
+		font-weight: 600;
 		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 		user-select: none;
+		opacity: 1;
+		transform: scale(1);
 	}
 
-	@keyframes fade-in {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
+	.logo-text.animate-entrance {
+		opacity: 0;
+		transform: scale(0);
+	}
+
+	.loading-dots {
+		display: flex;
+		justify-content: center;
+		gap: 8px;
+		margin-top: 15px;
+	}
+
+	.dot {
+		width: 8px;
+		height: 8px;
+		background-color: #64ffda;
+		border-radius: 50%;
+		opacity: 0.6;
+		transform: scale(1);
+	}
+
+	.dot.animate-entrance {
+		opacity: 0.3;
+		transform: scale(0);
+	}
+
+	.loading-text {
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 14px;
+		color: #8892b0;
+		letter-spacing: 1px;
+		margin-top: 20px;
+		opacity: 1;
+		transform: translateY(0px);
+	}
+
+	.loading-text.animate-entrance {
+		opacity: 0;
+		transform: translateY(20px);
 	}
 </style>
 
 <script>
-	// Hide loader after page loads
-	window.addEventListener('load', () => {
+	// Enhanced loader animations with anime.js
+	let animationsStarted = false;
+	
+	function startAnimations() {
+		if (animationsStarted) return;
+		animationsStarted = true;
+		
+		console.log('Starting loader animations...');
+		
+		// Check if anime.js is loaded
+		if (typeof anime === 'undefined') {
+			console.warn('Anime.js not loaded, using fallback CSS animations');
+			fallbackAnimation();
+			return;
+		}
+		
+		console.log('Anime.js loaded, starting advanced animations');
+
+		// Remove animate-entrance classes and start with hidden state
+		document.querySelectorAll('.animate-entrance').forEach(el => {
+			el.classList.remove('animate-entrance');
+		});
+
+		// Set initial states for animation
+		anime.set('#logo-square', {
+			opacity: 0,
+			scale: 0.5,
+			rotate: 45
+		});
+		
+		anime.set('#logo-text', {
+			opacity: 0,
+			scale: 0
+		});
+		
+		anime.set('.dot', {
+			opacity: 0,
+			scale: 0
+		});
+		
+		anime.set('#loading-text', {
+			opacity: 0,
+			translateY: 20
+		});
+
+		// Main loading animation sequence
+		const animationTimeline = anime.timeline({
+			easing: 'easeOutExpo',
+			complete: () => {
+				console.log('Entrance animations complete');
+				setTimeout(exitAnimation, 1200);
+			}
+		});
+
+		// Logo square entrance
+		animationTimeline.add({
+			targets: '#logo-square',
+			opacity: [0, 1],
+			scale: [0.5, 1.1, 1],
+			rotate: [45, 0],
+			duration: 1000,
+			easing: 'easeOutElastic(1, 0.6)'
+		});
+
+		// Logo text entrance
+		animationTimeline.add({
+			targets: '#logo-text',
+			opacity: [0, 1],
+			scale: [0, 1.2, 1],
+			duration: 600,
+			easing: 'easeOutBack(1.7)',
+			offset: 400
+		});
+
+		// Loading dots animation
+		animationTimeline.add({
+			targets: '.dot',
+			scale: [0, 1],
+			opacity: [0, 1],
+			duration: 400,
+			delay: anime.stagger(150),
+			offset: 600
+		});
+
+		// Loading text entrance
+		animationTimeline.add({
+			targets: '#loading-text',
+			opacity: [0, 1],
+			translateY: [20, 0],
+			duration: 500,
+			easing: 'easeOutCubic',
+			offset: 800
+		});
+
+		// Continuous animations
+		setTimeout(() => {
+			// Pulsing dots animation (continuous)
+			anime({
+				targets: '.dot',
+				scale: [1, 1.3, 1],
+				opacity: [1, 0.5, 1],
+				duration: 1000,
+				delay: anime.stagger(200),
+				loop: true,
+				direction: 'alternate',
+				easing: 'easeInOutSine'
+			});
+
+			// Glowing effect for logo square
+			anime({
+				targets: '#logo-square',
+				boxShadow: [
+					'0 0 20px rgba(100, 255, 218, 0.3), inset 0 0 20px rgba(100, 255, 218, 0.1)',
+					'0 0 40px rgba(100, 255, 218, 0.6), inset 0 0 30px rgba(100, 255, 218, 0.2)',
+					'0 0 20px rgba(100, 255, 218, 0.3), inset 0 0 20px rgba(100, 255, 218, 0.1)'
+				],
+				duration: 2000,
+				loop: true,
+				direction: 'alternate',
+				easing: 'easeInOutSine'
+			});
+		}, 1000);
+	}
+
+	function exitAnimation() {
+		console.log('Starting exit animation');
+		
+		// Stop all ongoing animations
+		anime.remove('.dot');
+		anime.remove('#logo-square');
+
+		// Exit sequence
+		const exitTimeline = anime.timeline({
+			complete: () => {
+				const loader = document.getElementById('loader');
+				if (loader) {
+					loader.style.display = 'none';
+					console.log('Loader hidden');
+				}
+			}
+		});
+
+		// Animate elements out
+		exitTimeline.add({
+			targets: '#loading-text',
+			opacity: [1, 0],
+			translateY: [0, -20],
+			duration: 300,
+			easing: 'easeInCubic'
+		});
+
+		exitTimeline.add({
+			targets: '.dot',
+			scale: [1, 0],
+			opacity: [1, 0],
+			duration: 300,
+			delay: anime.stagger(100),
+			offset: 100
+		});
+
+		exitTimeline.add({
+			targets: '#logo-text',
+			opacity: [1, 0],
+			scale: [1, 0.8],
+			duration: 400,
+			easing: 'easeInBack(1.7)',
+			offset: 200
+		});
+
+		exitTimeline.add({
+			targets: '#logo-square',
+			opacity: [1, 0],
+			scale: [1, 0.5],
+			rotate: [0, 180],
+			duration: 600,
+			easing: 'easeInExpo',
+			offset: 300
+		});
+
+		exitTimeline.add({
+			targets: '#loader',
+			opacity: [1, 0],
+			duration: 400,
+			easing: 'easeInCubic',
+			offset: 600
+		});
+	}
+
+	function fallbackAnimation() {
+		console.log('Using fallback animation');
+		// Remove animation classes to show elements
+		document.querySelectorAll('.animate-entrance').forEach(el => {
+			el.classList.remove('animate-entrance');
+		});
+		
+		// Simple fallback
 		const loader = document.getElementById('loader');
 		if (loader) {
 			setTimeout(() => {
 				loader.classList.add('fade-out');
 				setTimeout(() => {
 					loader.style.display = 'none';
-				}, 250);
-			}, 1000); // Show loader for 1 second minimum
+				}, 600);
+			}, 2000);
 		}
-	});
+	}
+
+	// Start animations when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', startAnimations);
+	} else {
+		startAnimations();
+	}
 </script>
