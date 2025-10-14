@@ -234,23 +234,34 @@ const t = useTranslations(lang);
 	// Language selector functionality
 	const languageSelect = document.getElementById('languageSelect');
 	if (languageSelect) {
+		// Set initial value based on current URL
+		const currentPath = window.location.pathname;
+		const isEnglish = currentPath.startsWith('/en');
+		languageSelect.value = isEnglish ? 'en' : 'es';
+		
 		languageSelect.addEventListener('change', function(e) {
 			const selectedLang = e.target.value;
-			const currentPath = window.location.pathname;
 			
 			if (selectedLang === 'en') {
 				// Navigate to English version
 				if (currentPath === '/') {
-					window.location.href = '/en';
-				} else if (!currentPath.startsWith('/en')) {
+					window.location.href = '/en/';
+				} else if (currentPath.startsWith('/en')) {
+					// Already in English, do nothing
+					return;
+				} else {
 					window.location.href = '/en' + currentPath;
 				}
 			} else {
 				// Navigate to Spanish version (default)
 				if (currentPath.startsWith('/en/')) {
-					window.location.href = currentPath.replace('/en', '');
+					const newPath = currentPath.replace('/en/', '/');
+					window.location.href = newPath === '/' ? '/' : newPath;
 				} else if (currentPath === '/en') {
 					window.location.href = '/';
+				} else {
+					// Already in Spanish, do nothing
+					return;
 				}
 			}
 		});
