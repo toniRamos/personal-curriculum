@@ -20,6 +20,7 @@ const { title = "Mi Portfolio Personal" } = Astro.props;
 		<meta name="description" content="Portfolio personal - Frontend Engineer" />
 	</head>
 	<body>
+		<div class="cursor-trace"></div>
 		<div class="app">
 			<slot />
 		</div>
@@ -46,6 +47,48 @@ const { title = "Mi Portfolio Personal" } = Astro.props;
 		background-color: #0f172a;
 		color: #cbd5e1;
 		overflow-x: hidden;
+	}
+
+	.cursor-trace {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		pointer-events: none;
+		z-index: 9998;
+		overflow: hidden;
+	}
+
+	.code-symbol {
+		position: absolute;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+		font-size: 14px;
+		color: #64ffda;
+		pointer-events: none;
+		opacity: 1;
+		transform: translate(-50%, -50%);
+		animation: fadeOut 1s ease-out forwards;
+		text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+	}
+
+	@keyframes fadeOut {
+		0% {
+			opacity: 1;
+			transform: translate(-50%, -50%) scale(1);
+		}
+		50% {
+			opacity: 0.6;
+			transform: translate(-50%, -50%) scale(1.2);
+		}
+		100% {
+			opacity: 0;
+			transform: translate(-50%, -50%) scale(0.8);
+		}
+	}
+
+	.cursor-gradient.active {
+		opacity: 1;
 	}
 
 	.app {
@@ -135,5 +178,94 @@ const { title = "Mi Portfolio Personal" } = Astro.props;
 		.container {
 			padding: 0 15px;
 		}
+		
+		/* Hide cursor effect on mobile */
+		.cursor-trace {
+			display: none;
+		}
 	}
 </style>
+
+<script>
+	// Code Trace Cursor Effect
+	document.addEventListener('DOMContentLoaded', function() {
+		const cursorTrace = document.querySelector('.cursor-trace');
+		if (!cursorTrace) return;
+
+		// Array of code symbols to display
+		const codeSymbols = [
+			'</>',
+			'{}',
+			'[]',
+			'()',
+			'=>',
+			'::',
+			'===',
+			'!=',
+			'++',
+			'--',
+			'&&',
+			'||',
+			'?:',
+			';',
+			'.',
+			'$',
+			'#',
+			'@',
+			'*',
+			'+',
+			'.log()',
+			'.env',
+			'printf',
+			'await',
+
+		];
+
+		let lastTime = 0;
+		const throttleDelay = 50; // Create symbol every 50ms max
+
+		// Function to create a code symbol at cursor position
+		function createCodeSymbol(x, y) {
+			const symbol = document.createElement('div');
+			symbol.className = 'code-symbol';
+			symbol.textContent = codeSymbols[Math.floor(Math.random() * codeSymbols.length)];
+			symbol.style.left = x + 'px';
+			symbol.style.top = y + 'px';
+			
+			// Add slight random offset for more natural feel
+			const offsetX = (Math.random() - 0.5) * 20;
+			const offsetY = (Math.random() - 0.5) * 20;
+			symbol.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`;
+
+			cursorTrace.appendChild(symbol);
+
+			// Remove symbol after animation completes
+			setTimeout(() => {
+				if (symbol.parentNode) {
+					symbol.parentNode.removeChild(symbol);
+				}
+			}, 1000);
+		}
+
+		// Track mouse movement and create symbols
+		document.addEventListener('mousemove', function(e) {
+			const currentTime = Date.now();
+			
+			// Throttle symbol creation
+			if (currentTime - lastTime > throttleDelay) {
+				createCodeSymbol(e.clientX, e.clientY);
+				lastTime = currentTime;
+			}
+		});
+
+		// Create symbol on click for extra interactivity
+		document.addEventListener('click', function(e) {
+			// Create multiple symbols on click
+			for (let i = 0; i < 3; i++) {
+				setTimeout(() => {
+					createCodeSymbol(e.clientX, e.clientY);
+				}, i * 100);
+			}
+		});
+	});
+</script>
