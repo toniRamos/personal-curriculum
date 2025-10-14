@@ -1,0 +1,318 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Información Personal - Mi Portfolio">
+	<div class="personal-info-container">
+		<div class="container">
+			<header class="page-header">
+				<h1 class="page-title">Información Personal</h1>
+				<p class="page-subtitle">Conoce más sobre mí y mi trayectoria profesional</p>
+			</header>
+
+			<div class="content-grid">
+				<section class="info-card">
+					<h2 class="card-title">📋 Sobre Mí</h2>
+					<p class="card-content">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+					</p>
+				</section>
+
+				<section class="info-card">
+					<h2 class="card-title">🎯 Especialidades</h2>
+					<ul class="skills-list">
+						<li>Desarrollo Frontend (React, Vue, Angular)</li>
+						<li>Desarrollo Backend (Node.js, Python, Java)</li>
+						<li>Bases de Datos (MongoDB, PostgreSQL, MySQL)</li>
+						<li>DevOps y Cloud (Docker, AWS, Azure)</li>
+						<li>Metodologías Ágiles (Scrum, Kanban)</li>
+					</ul>
+				</section>
+
+				<section class="info-card">
+					<h2 class="card-title">🏢 Experiencia</h2>
+					<div class="experience-item">
+						<h3 class="experience-title">Senior Full Stack Developer</h3>
+						<p class="experience-company">Tech Solutions Inc. | 2022 - Presente</p>
+						<p class="experience-description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+						</p>
+					</div>
+					
+					<div class="experience-item">
+						<h3 class="experience-title">Frontend Developer</h3>
+						<p class="experience-company">Digital Agency Co. | 2020 - 2022</p>
+						<p class="experience-description">
+							Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris viverra venerdiet.
+						</p>
+					</div>
+				</section>
+
+				<section class="info-card">
+					<h2 class="card-title">🎓 Formación</h2>
+					<div class="education-item">
+						<h3 class="education-title">Ingeniería Informática</h3>
+						<p class="education-institution">Universidad Tecnológica | 2016 - 2020</p>
+						<p class="education-description">
+							Especialización en desarrollo de software y sistemas distribuidos.
+						</p>
+					</div>
+					
+					<div class="education-item">
+						<h3 class="education-title">Certificación AWS Solutions Architect</h3>
+						<p class="education-institution">Amazon Web Services | 2021</p>
+						<p class="education-description">
+							Certificación profesional en arquitectura de soluciones en la nube.
+						</p>
+					</div>
+				</section>
+
+				<section class="info-card">
+					<h2 class="card-title">📞 Información de Contacto</h2>
+					<div class="contact-info">
+						<p><strong>📧 Email:</strong> ejemplo@correo.com</p>
+						<p><strong>📱 Teléfono:</strong> +34 123 456 789</p>
+						<p><strong>📍 Ubicación:</strong> Madrid, España</p>
+						<p><strong>🔗 LinkedIn:</strong> linkedin.com/in/ejemplo</p>
+						<p><strong>💻 GitHub:</strong> github.com/ejemplo</p>
+					</div>
+				</section>
+
+				<section class="info-card">
+					<h2 class="card-title">🌟 Proyectos Destacados</h2>
+					<div class="project-item">
+						<h3 class="project-title">E-commerce Platform</h3>
+						<p class="project-description">
+							Plataforma de comercio electrónico desarrollada con React y Node.js, con integración de pagos y gestión de inventario en tiempo real.
+						</p>
+						<div class="project-tags">
+							<span class="tag">React</span>
+							<span class="tag">Node.js</span>
+							<span class="tag">MongoDB</span>
+						</div>
+					</div>
+					
+					<div class="project-item">
+						<h3 class="project-title">Task Management App</h3>
+						<p class="project-description">
+							Aplicación de gestión de tareas con funcionalidades colaborativas, notificaciones en tiempo real y sincronización multi-dispositivo.
+						</p>
+						<div class="project-tags">
+							<span class="tag">Vue.js</span>
+							<span class="tag">Firebase</span>
+							<span class="tag">PWA</span>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.personal-info-container {
+		padding: 2rem 0;
+		min-height: 100vh;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+
+	.page-header {
+		text-align: center;
+		margin-bottom: 3rem;
+		padding: 2rem 0;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+		border-radius: 12px;
+		box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+	}
+
+	.page-title {
+		font-size: 3rem;
+		font-weight: 700;
+		margin: 0 0 1rem 0;
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+	}
+
+	.page-subtitle {
+		font-size: 1.2rem;
+		opacity: 0.9;
+		margin: 0;
+	}
+
+	.content-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.info-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 12px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		border: 1px solid #e9ecef;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.info-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+	}
+
+	.card-title {
+		color: #333;
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin: 0 0 1.5rem 0;
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid #667eea;
+	}
+
+	.card-content {
+		color: #666;
+		line-height: 1.7;
+		margin: 0;
+	}
+
+	.skills-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.skills-list li {
+		padding: 0.75rem 0;
+		border-bottom: 1px solid #f0f0f0;
+		position: relative;
+		padding-left: 1.5rem;
+	}
+
+	.skills-list li:before {
+		content: "✓";
+		position: absolute;
+		left: 0;
+		color: #28a745;
+		font-weight: bold;
+	}
+
+	.skills-list li:last-child {
+		border-bottom: none;
+	}
+
+	.experience-item,
+	.education-item,
+	.project-item {
+		margin-bottom: 1.5rem;
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid #f0f0f0;
+	}
+
+	.experience-item:last-child,
+	.education-item:last-child,
+	.project-item:last-child {
+		margin-bottom: 0;
+		border-bottom: none;
+	}
+
+	.experience-title,
+	.education-title,
+	.project-title {
+		color: #333;
+		font-size: 1.2rem;
+		font-weight: 600;
+		margin: 0 0 0.5rem 0;
+	}
+
+	.experience-company,
+	.education-institution {
+		color: #667eea;
+		font-weight: 500;
+		margin: 0 0 0.75rem 0;
+	}
+
+	.experience-description,
+	.education-description,
+	.project-description {
+		color: #666;
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.contact-info p {
+		margin: 0.75rem 0;
+		color: #555;
+	}
+
+	.contact-info strong {
+		color: #333;
+	}
+
+	.project-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 1rem;
+	}
+
+	.tag {
+		background: #667eea;
+		color: white;
+		padding: 0.3rem 0.8rem;
+		border-radius: 20px;
+		font-size: 0.8rem;
+		font-weight: 500;
+	}
+
+	/* Responsive Design */
+	@media (max-width: 768px) {
+		.content-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.page-title {
+			font-size: 2.2rem;
+		}
+
+		.page-subtitle {
+			font-size: 1rem;
+		}
+
+		.info-card {
+			padding: 1.5rem;
+		}
+
+		.card-title {
+			font-size: 1.3rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.personal-info-container {
+			padding: 1rem 0;
+		}
+
+		.page-header {
+			padding: 1.5rem 1rem;
+			margin-bottom: 2rem;
+		}
+
+		.page-title {
+			font-size: 1.8rem;
+		}
+
+		.info-card {
+			padding: 1rem;
+		}
+
+		.project-tags {
+			justify-content: center;
+		}
+	}
+</style>
