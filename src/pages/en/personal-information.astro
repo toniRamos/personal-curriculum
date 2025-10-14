@@ -1,9 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { useTranslations, getLangFromUrl } from '../i18n/ui';
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/ui';
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations('en');
 ---
 
 <Layout title={t('personalInfo.title')}>
@@ -25,11 +24,11 @@ const t = useTranslations(lang);
 				<section class="info-card">
 					<h2 class="card-title">{t('personalInfo.sections.specialties.title')}</h2>
 					<ul class="skills-list">
-						<li>Desarrollo Frontend (React, Vue, Angular)</li>
-						<li>Desarrollo Backend (Node.js, Python, Java)</li>
-						<li>Bases de Datos (MongoDB, PostgreSQL, MySQL)</li>
-						<li>DevOps y Cloud (Docker, AWS, Azure)</li>
-						<li>Metodologías Ágiles (Scrum, Kanban)</li>
+						<li>Frontend Development (React, Vue, Angular)</li>
+						<li>Backend Development (Node.js, Python, Java)</li>
+						<li>Databases (MongoDB, PostgreSQL, MySQL)</li>
+						<li>DevOps and Cloud (Docker, AWS, Azure)</li>
+						<li>Agile Methodologies (Scrum, Kanban)</li>
 					</ul>
 				</section>
 
@@ -37,7 +36,7 @@ const t = useTranslations(lang);
 					<h2 class="card-title">{t('personalInfo.sections.experience.title')}</h2>
 					<div class="experience-item">
 						<h3 class="experience-title">Senior Full Stack Developer</h3>
-						<p class="experience-company">Tech Solutions Inc. | 2022 - Presente</p>
+						<p class="experience-company">Tech Solutions Inc. | 2022 - Present</p>
 						<p class="experience-description">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 						</p>
@@ -54,30 +53,31 @@ const t = useTranslations(lang);
 
 				<section class="info-card">
 					<h2 class="card-title">{t('personalInfo.sections.education.title')}</h2>
-					<div class="timeline-item">
-						<h3>Máster en Ingeniería de Software</h3>
-						<p class="timeline-period">Universidad Técnica • 2018-2020</p>
-						<p class="timeline-description">Especialización en arquitecturas distribuidas y metodologías de desarrollo ágil.</p>
+					<div class="education-item">
+						<h3 class="education-title">Computer Engineering</h3>
+						<p class="education-institution">Technology University | 2016 - 2020</p>
+						<p class="education-description">
+							Specialization in software development and distributed systems.
+						</p>
 					</div>
-					<div class="timeline-item">
-						<h3>Ingeniería en Informática</h3>
-						<p class="timeline-period">Universidad Nacional • 2014-2018</p>
-						<p class="timeline-description">Formación integral en ciencias de la computación y desarrollo de software.</p>
+					
+					<div class="education-item">
+						<h3 class="education-title">AWS Solutions Architect Certification</h3>
+						<p class="education-institution">Amazon Web Services | 2021</p>
+						<p class="education-description">
+							Professional certification in cloud solutions architecture.
+						</p>
 					</div>
-				</section>
-
-				<section class="info-card">
-					<h2 class="card-title">{t('personalInfo.sections.projects.title')}</h2>
 				</section>
 
 				<section class="info-card">
 					<h2 class="card-title">{t('personalInfo.sections.contact.title')}</h2>
 					<div class="contact-info">
-						<p><strong>📧 Email:</strong> ejemplo@correo.com</p>
-						<p><strong>📱 Teléfono:</strong> +34 123 456 789</p>
-						<p><strong>📍 Ubicación:</strong> Madrid, España</p>
-						<p><strong>🔗 LinkedIn:</strong> linkedin.com/in/ejemplo</p>
-						<p><strong>💻 GitHub:</strong> github.com/ejemplo</p>
+						<p><strong>📧 Email:</strong> example@email.com</p>
+						<p><strong>📱 Phone:</strong> +34 123 456 789</p>
+						<p><strong>📍 Location:</strong> Madrid, Spain</p>
+						<p><strong>🔗 LinkedIn:</strong> linkedin.com/in/example</p>
+						<p><strong>💻 GitHub:</strong> github.com/example</p>
 					</div>
 				</section>
 
@@ -86,7 +86,7 @@ const t = useTranslations(lang);
 					<div class="project-item">
 						<h3 class="project-title">E-commerce Platform</h3>
 						<p class="project-description">
-							Plataforma de comercio electrónico desarrollada con React y Node.js, con integración de pagos y gestión de inventario en tiempo real.
+							E-commerce platform developed with React and Node.js, with payment integration and real-time inventory management.
 						</p>
 						<div class="project-tags">
 							<span class="tag">React</span>
@@ -98,7 +98,7 @@ const t = useTranslations(lang);
 					<div class="project-item">
 						<h3 class="project-title">Task Management App</h3>
 						<p class="project-description">
-							Aplicación de gestión de tareas con funcionalidades colaborativas, notificaciones en tiempo real y sincronización multi-dispositivo.
+							Task management application with collaborative features, real-time notifications and multi-device synchronization.
 						</p>
 						<div class="project-tags">
 							<span class="tag">Vue.js</span>

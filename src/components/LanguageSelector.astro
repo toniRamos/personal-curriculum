@@ -1,0 +1,150 @@
+---
+import { languages, getLangFromUrl, translatePath, getRouteFromUrl } from '../i18n/ui';
+
+const currentLang = getLangFromUrl(Astro.url);
+const currentRoute = getRouteFromUrl(Astro.url);
+---
+
+<div class="language-selector">
+  <div class="language-dropdown">
+    <button class="language-button" aria-label="Seleccionar idioma">
+      🌐 {languages[currentLang]}
+      <span class="arrow">▼</span>
+    </button>
+    <div class="language-menu">
+      {Object.entries(languages).map(([lang, name]) => (
+        <a 
+          href={translatePath(lang, currentRoute)}
+          class={`language-option ${lang === currentLang ? 'active' : ''}`}
+          hreflang={lang}
+        >
+          {name}
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .language-selector {
+    position: relative;
+    display: inline-block;
+  }
+
+  .language-dropdown {
+    position: relative;
+  }
+
+  .language-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .language-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+  }
+
+  .language-dropdown:hover .arrow {
+    transform: rotate(180deg);
+  }
+
+  .language-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e9ecef;
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+
+  .language-dropdown:hover .language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .language-option {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-bottom: 1px solid #f8f9fa;
+    transition: all 0.2s ease;
+  }
+
+  .language-option:last-child {
+    border-bottom: none;
+  }
+
+  .language-option:hover {
+    background: #f8f9fa;
+    color: #667eea;
+  }
+
+  .language-option.active {
+    background: #667eea;
+    color: white;
+  }
+
+  .language-option:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .language-option:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .language-button {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+    }
+    
+    .language-menu {
+      min-width: 120px;
+    }
+    
+    .language-option {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.85rem;
+    }
+  }
+</style>
+
+<script>
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    const languageSelector = document.querySelector('.language-selector');
+    if (languageSelector && !languageSelector.contains(e.target as Node)) {
+      const dropdown = languageSelector.querySelector('.language-dropdown');
+      dropdown?.classList.remove('open');
+    }
+  });
+</script>

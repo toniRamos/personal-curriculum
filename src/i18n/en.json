@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "home": "Home",
+    "personalInfo": "Personal Information",
+    "brand": "My Portfolio"
+  },
+  "home": {
+    "title": "Home - My Personal Portfolio",
+    "wipTitle": "Portfolio Under Construction",
+    "wipSubtitle": "Work in Progress",
+    "welcome": "Welcome to my personal portfolio! I'm currently working on adding all my projects and experiences.",
+    "features": {
+      "projects": {
+        "title": "Projects",
+        "description": "Soon all my web development projects, mobile applications and more will be available."
+      },
+      "experience": {
+        "title": "Experience",
+        "description": "Learn about my professional journey and the technologies I've worked with."
+      },
+      "skills": {
+        "title": "Skills",
+        "description": "Discover my technical competencies and the tools I master."
+      }
+    },
+    "progress": {
+      "title": "What am I adding?",
+      "items": {
+        "personalInfo": "Personal information and contact",
+        "responsive": "Responsive portfolio design",
+        "gallery": "Project gallery",
+        "blog": "Technical blog",
+        "contact": "Contact form",
+        "certifications": "Certifications and achievements"
+      }
+    },
+    "cta": {
+      "text": "Meanwhile, you can learn more about me:",
+      "button": "View Personal Information"
+    }
+  },
+  "personalInfo": {
+    "title": "Personal Information - My Portfolio",
+    "pageTitle": "Personal Information",
+    "pageSubtitle": "Learn more about me and my professional journey",
+    "sections": {
+      "about": {
+        "title": "📋 About Me"
+      },
+      "specialties": {
+        "title": "🎯 Specialties"
+      },
+      "experience": {
+        "title": "🏢 Experience"
+      },
+      "education": {
+        "title": "🎓 Education"
+      },
+      "contact": {
+        "title": "📞 Contact Information"
+      },
+      "projects": {
+        "title": "🌟 Featured Projects"
+      }
+    }
+  }
+}

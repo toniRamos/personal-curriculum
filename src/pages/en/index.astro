@@ -1,9 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { useTranslations, getLangFromUrl, translatePath } from '../i18n/ui';
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/ui';
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations('en');
 ---
 
 <Layout title={t('home.title')}>
@@ -59,7 +58,7 @@ const t = useTranslations(lang);
 					
 					<div class="cta-section">
 						<p class="cta-text">{t('home.cta.text')}</p>
-						<a href={translatePath(lang, 'personal-information')} class="cta-button">
+						<a href="/en/personal-information" class="cta-button">
 							{t('home.cta.button')}
 						</a>
 					</div>

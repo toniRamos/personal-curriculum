@@ -1,20 +1,25 @@
 ---
-// Header.astro - Componente de navegación
+import LanguageSelector from './LanguageSelector.astro';
+import { useTranslations, getLangFromUrl, translatePath } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header class="header">
   <nav class="nav">
     <div class="nav-brand">
-      <a href="/" class="nav-brand-link">Mi Portfolio</a>
+      <a href={translatePath(lang)} class="nav-brand-link">{t('nav.brand')}</a>
     </div>
     <ul class="nav-menu">
       <li class="nav-item">
-        <a href="/" class="nav-link">Home</a>
+        <a href={translatePath(lang)} class="nav-link">{t('nav.home')}</a>
       </li>
       <li class="nav-item">
-        <a href="/personal-information" class="nav-link">Información Personal</a>
+        <a href={translatePath(lang, 'personal-information')} class="nav-link">{t('nav.personalInfo')}</a>
       </li>
     </ul>
+    <LanguageSelector />
   </nav>
 </header>
 
@@ -34,6 +39,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    gap: 1rem;
   }
 
   .nav-brand-link {

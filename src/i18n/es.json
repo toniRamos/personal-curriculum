@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "personalInfo": "Información Personal",
+    "brand": "Mi Portfolio"
+  },
+  "home": {
+    "title": "Inicio - Mi Portfolio Personal",
+    "wipTitle": "Portfolio en Construcción",
+    "wipSubtitle": "Work in Progress",
+    "welcome": "¡Bienvenido a mi portfolio personal! Actualmente estoy trabajando en añadir todos mis proyectos y experiencias.",
+    "features": {
+      "projects": {
+        "title": "Proyectos",
+        "description": "Próximamente estarán disponibles todos mis proyectos de desarrollo web, aplicaciones móviles y más."
+      },
+      "experience": {
+        "title": "Experiencia", 
+        "description": "Conoce mi trayectoria profesional y las tecnologías con las que he trabajado."
+      },
+      "skills": {
+        "title": "Habilidades",
+        "description": "Descubre mis competencias técnicas y las herramientas que domino."
+      }
+    },
+    "progress": {
+      "title": "¿Qué estoy añadiendo?",
+      "items": {
+        "personalInfo": "Información personal y contacto",
+        "responsive": "Diseño responsive del portfolio", 
+        "gallery": "Galería de proyectos",
+        "blog": "Blog técnico",
+        "contact": "Formulario de contacto",
+        "certifications": "Certificaciones y logros"
+      }
+    },
+    "cta": {
+      "text": "Mientras tanto, puedes conocer más sobre mí:",
+      "button": "Ver Información Personal"
+    }
+  },
+  "personalInfo": {
+    "title": "Información Personal - Mi Portfolio",
+    "pageTitle": "Información Personal",
+    "pageSubtitle": "Conoce más sobre mí y mi trayectoria profesional",
+    "sections": {
+      "about": {
+        "title": "📋 Sobre Mí"
+      },
+      "specialties": {
+        "title": "🎯 Especialidades"
+      },
+      "experience": {
+        "title": "🏢 Experiencia"
+      },
+      "education": {
+        "title": "🎓 Formación"
+      },
+      "contact": {
+        "title": "📞 Información de Contacto"
+      },
+      "projects": {
+        "title": "🌟 Proyectos Destacados"
+      }
+    }
+  }
+}
