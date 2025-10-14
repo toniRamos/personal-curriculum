@@ -5,20 +5,9 @@
 <div class="loader-wrapper" id="loader">
 	<div class="loader">
 		<div class="loader-logo">
-			<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-				<title>AC</title>
-				<g>
-					<g id="A" transform="translate(11.000000, 5.000000)">
-						<path d="M 25 35 L 15 65 L 20 65 L 22 58 L 28 58 L 30 65 L 35 65 L 25 35 Z M 23.5 53 L 26.5 53 L 25 47.5 Z" 
-							  fill="currentColor"/>
-					</g>
-					<g id="C" transform="translate(45.000000, 5.000000)">
-						<path d="M 25 35 C 17 35 12 40 12 50 C 12 60 17 65 25 65 C 30 65 35 62 37 58 L 33 55 C 32 58 29 60 25 60 C 20 60 17 56 17 50 C 17 44 20 40 25 40 C 29 40 32 42 33 45 L 37 42 C 35 38 30 35 25 35 Z" 
-							  fill="currentColor"/>
-					</g>
-					<polygon id="Shape" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="39 0 0 22 0 78 39 100 78 78 78 22"></polygon>
-				</g>
-			</svg>
+			<div class="logo-square">
+				<span class="logo-text">AR</span>
+			</div>
 		</div>
 	</div>
 </div>
@@ -50,17 +39,27 @@
 		text-align: center;
 	}
 
-	.loader-logo svg {
-		width: 100%;
-		height: 100%;
-		display: block;
-		margin: 0 auto;
-		fill: none;
-		user-select: none;
+	.loader-logo {
+		animation: fade-in 1s ease-in-out 0.5s both;
 	}
 
-	#logo {
-		animation: fade-in 1s ease-in-out 0.5s both;
+	.logo-square {
+		width: 80px;
+		height: 80px;
+		border: 3px solid #64ffda;
+		border-radius: 4px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
+	}
+
+	.logo-text {
+		color: #64ffda;
+		font-size: 28px;
+		font-weight: 400;
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		user-select: none;
 	}
 
 	@keyframes fade-in {
