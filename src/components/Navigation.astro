@@ -7,7 +7,7 @@ const t = useTranslations(lang);
 
 <nav class="navbar">
 	<div class="nav-header">
-		<a href={lang === 'en' ? '/personal-curriculum/en/' : '/personal-curriculum/'} class="logo">
+		<a href={lang === 'en' ? '/portfolio/en/' : '/portfolio/'} class="logo">
 			<span class="logo-text">AR</span>
 		</a>
 	</div>
@@ -420,7 +420,7 @@ const t = useTranslations(lang);
 	
 	function handleLanguageChange(selectedLang) {
 		const currentPath = window.location.pathname;
-		const basePath = '/personal-curriculum';
+		const basePath = '/portfolio';
 		
 		if (selectedLang === 'en') {
 			// Navigate to English version
@@ -451,7 +451,7 @@ const t = useTranslations(lang);
 	if (languageSelect) {
 		// Set initial value based on current URL
 		const currentPath = window.location.pathname;
-		const basePath = '/personal-curriculum';
+		const basePath = '/portfolio';
 		const isEnglish = currentPath.startsWith(basePath + '/en');
 		languageSelect.value = isEnglish ? 'en' : 'es';
 		
@@ -463,7 +463,7 @@ const t = useTranslations(lang);
 	if (mobileLanguageSelect) {
 		// Set initial value based on current URL
 		const currentPath = window.location.pathname;
-		const basePath = '/personal-curriculum';
+		const basePath = '/portfolio';
 		const isEnglish = currentPath.startsWith(basePath + '/en');
 		mobileLanguageSelect.value = isEnglish ? 'en' : 'es';
 		

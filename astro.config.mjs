@@ -10,7 +10,7 @@ export default defineConfig({
       prefixDefaultLocale: false
     }
   },
-  site: 'https://toniramos.github.io/personal-curriculum/',
-  base: '/personal-curriculum',
+  site: 'https://toniramos.github.io/portfolio/',
+  base: '/portfolio',
   output: 'static',
 });

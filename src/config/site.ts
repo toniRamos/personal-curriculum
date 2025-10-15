@@ -3,7 +3,7 @@ export const siteConfig = {
   name: "Antonio Ramos",
   title: "Antonio Ramos - Frontend Engineer",
   description: "I build accessible, pixel-perfect digital experiences for the web.",
-  url: "https://toniramos.github.io/personal-curriculum",
+  url: "https://toniramos.github.io/portfolio",
   email: "antonioramostorres@gmail.com",
   
   // Social links
