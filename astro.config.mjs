@@ -11,6 +11,6 @@ export default defineConfig({
     }
   },
   site: 'https://toniramos.github.io/',
-  base: '/personal-curriculum',
+  base: '/',
   output: 'static',
 });
