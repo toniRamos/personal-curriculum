@@ -79,7 +79,7 @@ const t = useTranslations(lang);
 				<div class="about-image">
 					<div class="image-wrapper animate-profile">
 						<img 
-							src="/images/profile/profile-picture.jpg" 
+							src={`${import.meta.env.BASE_URL}images/profile/profile-picture.jpg`}
 							alt="Antonio Ramos - Arquitecto de Software"
 							loading="lazy"
 						/>
@@ -159,7 +159,7 @@ const t = useTranslations(lang);
 					</div>
 					<div class="project-image">
 						<img 
-							src="/images/projects/portfolio-screenshot.png" 
+							src={`${import.meta.env.BASE_URL}images/projects/portfolio-screenshot.png`}
 							alt="Captura de pantalla del Portfolio Personal"
 							loading="lazy"
 						/>
@@ -193,7 +193,7 @@ const t = useTranslations(lang);
 					</div>
 					<div class="project-image">
 						<img 
-							src="/images/projects/video-store-screenshot.png" 
+							src={`${import.meta.env.BASE_URL}images/projects/video-store-screenshot.png`}
 							alt="Captura de pantalla del Sistema de Gestión de Videoclub"
 							loading="lazy"
 						/>
