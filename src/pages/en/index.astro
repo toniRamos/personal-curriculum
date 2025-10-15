@@ -482,6 +482,13 @@ const t = useTranslations('en');
 	}
 
 	/* Experience Section */
+	.experience {
+		min-height: 100vh;
+		display: block;
+		position: relative;
+		overflow: visible;
+	}
+
 	.job-card {
 		position: relative;
 		display: grid;
@@ -818,15 +825,38 @@ const t = useTranslations('en');
 			width: 70%;
 		}
 
+		.experience {
+			min-height: auto;
+			padding: 60px 15px;
+			display: block !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+			position: relative;
+			z-index: 1;
+			width: 100%;
+		}
+
+		.experience-content {
+			display: block;
+			width: 100%;
+		}
+
 		.job-card {
 			grid-template-columns: 1fr;
 			margin-bottom: 40px;
+			display: block;
+			width: 100%;
 		}
 
 		.job-content,
 		.job-card:nth-child(even) .job-content {
 			grid-column: 1 / -1;
 			text-align: left;
+			display: block !important;
+			width: 100%;
+			position: relative;
+			visibility: visible !important;
+			opacity: 1 !important;
 		}
 
 		.job-highlight,
@@ -846,6 +876,28 @@ const t = useTranslations('en');
 			writing-mode: horizontal-tb;
 			text-orientation: unset;
 			letter-spacing: 1px;
+		}
+
+		.job-content h3,
+		.job-duration,
+		.job-location,
+		.job-responsibilities {
+			display: block !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+		}
+
+		/* Force experience section visibility in mobile */
+		.experience .reveal-element {
+			opacity: 1 !important;
+			transform: none !important;
+			filter: none !important;
+		}
+
+		.experience .reveal-element.revealed {
+			opacity: 1 !important;
+			transform: none !important;
+			filter: none !important;
 		}
 
 		.project-card {
