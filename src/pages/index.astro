@@ -163,11 +163,13 @@ const t = useTranslations(lang);
 						</div>
 					</div>
 					<div class="project-image">
-						<img 
-							src={portfolioScreenshot}
-							alt="Captura de pantalla del Portfolio Personal"
-							loading="lazy"
-						/>
+						<a href="https://github.com/toniRamos/personal-curriculum" target="_blank">
+							<img 
+								src={portfolioScreenshot}
+								alt="Captura de pantalla del Portfolio Personal"
+								loading="lazy"
+							/>
+						</a>
 					</div>
 				</div>
 
@@ -197,11 +199,13 @@ const t = useTranslations(lang);
 						</div>
 					</div>
 					<div class="project-image">
-						<img 
-							src={videoStoreScreenshot}
-							alt="Captura de pantalla del Sistema de Gestión de Videoclub"
-							loading="lazy"
-						/>
+						<a href="https://github.com/toniRamos/video-store" target="_blank">
+							<img 
+								src={videoStoreScreenshot}
+								alt="Captura de pantalla del Sistema de Gestión de Videoclub"
+								loading="lazy"
+							/>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -738,6 +742,11 @@ const t = useTranslations(lang);
 		z-index: 1;
 	}
 
+	.project-image a {
+		display: block;
+		cursor: pointer;
+	}
+
 	.project-image img {
 		width: 100%;
 		height: auto;
@@ -750,11 +759,16 @@ const t = useTranslations(lang);
 		box-shadow: 0 4px 20px rgba(2, 12, 27, 0.4);
 	}
 
-	.project-card:hover .project-image img {
+	.project-card:hover .project-image img,
+	.project-image a:hover img {
 		filter: blur(0px);
 		mix-blend-mode: normal;
 		transform: translateY(-2px);
 		box-shadow: 0 8px 30px rgba(2, 12, 27, 0.6);
+	}
+
+	.project-image a:hover img {
+		transform: translateY(-2px) scale(1.02);
 	}
 
 	.placeholder-project {
