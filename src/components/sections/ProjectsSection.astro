@@ -31,11 +31,11 @@ const videoStoreScreenshot = "/portfolio/images/projects/video-store-screenshot.
 						</a>
 					</h3>
 					<p class="project-description">{t('projects.portfolio.description')}</p>
-					<ul class="project-tech">
+					<div class="project-technologies">
 						{t('projects.portfolio.tech').map((tech, index) => (
-							<li key={index}>{tech}</li>
+							<span class="tech-tag" key={index}>{tech}</span>
 						))}
-					</ul>
+					</div>
 				</div>
 			</div>
 
@@ -53,11 +53,11 @@ const videoStoreScreenshot = "/portfolio/images/projects/video-store-screenshot.
 						</a>
 					</h3>
 					<p class="project-description">{t('projects.videoStore.description')}</p>
-					<ul class="project-tech">
+					<div class="project-technologies">
 						{t('projects.videoStore.tech').map((tech, index) => (
-							<li key={index}>{tech}</li>
+							<span class="tech-tag" key={index}>{tech}</span>
 						))}
-					</ul>
+					</div>
 				</div>
 			</div>
 		</div>
