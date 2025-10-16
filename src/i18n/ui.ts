@@ -14,7 +14,10 @@ export const ui = {
 } as const;
 
 export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
+  const pathname = url.pathname;
+  // Remove the base path '/portfolio' if present
+  const pathWithoutBase = pathname.replace(/^\/portfolio/, '');
+  const [, lang] = pathWithoutBase.split('/');
   if (lang in ui) return lang as keyof typeof ui;
   return defaultLang;
 }
