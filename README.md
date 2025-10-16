@@ -13,28 +13,38 @@ Personal portfolio of Antonio Ramos, Software Architect with 10+ years of experi
 ## 🚀 Project Structure
 
 ```text
-personal-curriculum/
+portfolio/
 ├── public/
 │   └── favicon.svg
 ├── src/
 │   ├── components/
-│   │   ├── Loader.astro          # Loading screen with animations
-│   │   ├── Navigation.astro      # Main navigation with language selector
-│   │   └── Social.astro          # Social media links
+│   │   ├── sections/
+│   │   │   ├── HeroSection.astro       # Hero section component
+│   │   │   ├── AboutSection.astro      # About section component
+│   │   │   ├── ExperienceSection.astro # Experience section component
+│   │   │   ├── ProjectsSection.astro   # Projects section component
+│   │   │   └── ContactSection.astro    # Contact section component
+│   │   ├── Loader.astro                # Loading screen with animations
+│   │   ├── Navigation.astro            # Main navigation with language selector
+│   │   └── Social.astro                # Social media links
 │   ├── config/
-│   │   └── site.ts               # Site configuration
+│   │   └── site.ts                     # Site configuration
 │   ├── i18n/
-│   │   ├── en.json               # English translations
-│   │   ├── es.json               # Spanish translations
-│   │   └── ui.ts                 # Internationalization utilities
+│   │   ├── en.json                     # English translations
+│   │   ├── es.json                     # Spanish translations
+│   │   └── ui.ts                       # Internationalization utilities
 │   ├── layouts/
-│   │   └── Layout.astro          # Base layout with global styles
+│   │   └── Layout.astro                # Base layout with global styles
+│   ├── scripts/
+│   │   └── landing-animations.js       # Scroll animations and interactions
+│   ├── styles/
+│   │   └── landing.css                 # Landing page styles
 │   └── pages/
-│       ├── index.astro           # Main page (Spanish)
+│       ├── index.astro                 # Main page (Spanish)
 │       └── en/
-│           └── index.astro       # Main page (English)
-├── docker-compose.yml            # Docker configuration
-├── Dockerfile                    # Docker image
+│           └── index.astro             # Main page (English)
+├── docker-compose.yml                  # Docker configuration
+├── Dockerfile                          # Docker image
 └── package.json
 ```
 
@@ -64,8 +74,8 @@ All commands are run from the root of the project:
 
 ```bash
 # Clone the repository
-git clone https://github.com/toniRamos/personal-curriculum.git
-cd personal-curriculum
+git clone https://github.com/toniRamos/portfolio.git
+cd portfolio
 
 # Install dependencies
 npm install
