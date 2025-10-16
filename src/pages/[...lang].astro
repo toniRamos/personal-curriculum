@@ -12,6 +12,14 @@ import { siteConfig } from '../config/site';
 
 // Import styles and scripts
 import '../styles/landing.css';
+
+// Generate static paths for both languages
+export function getStaticPaths() {
+  return [
+    { params: { lang: undefined } },   // Spanish (default) - /portfolio/
+    { params: { lang: 'en' } }         // English - /portfolio/en/
+  ];
+}
 ---
 
 <Layout title={siteConfig.title}>

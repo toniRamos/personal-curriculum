@@ -40,9 +40,7 @@ portfolio/
 │   ├── styles/
 │   │   └── landing.css                 # Landing page styles
 │   └── pages/
-│       ├── index.astro                 # Main page (Spanish)
-│       └── en/
-│           └── index.astro             # Main page (English)
+│       └── [...lang].astro             # Main page (handles both ES and EN routes)
 ├── docker-compose.yml                  # Docker configuration
 ├── Dockerfile                          # Docker image
 └── package.json
