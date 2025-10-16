@@ -1,24 +1,73 @@
 ---
+import { siteConfig } from '../config/site';
+import { getLangFromUrl } from '../i18n/ui';
+
 export interface Props {
 	title?: string;
+	description?: string;
 }
 
-const { title = "Mi Portfolio Personal" } = Astro.props;
+const { title = siteConfig.title, description = siteConfig.description } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+const canonicalURL = lang === 'en' 
+	? `${siteConfig.url}/en/` 
+	: `${siteConfig.url}/`;
+const ogImage = `${siteConfig.url}/og-default.png`;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
+		
+		<!-- SEO -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- Canonical + hreflang -->
+		<link rel="canonical" href={canonicalURL} />
+		<link rel="alternate" hreflang="es" href={`${siteConfig.url}/`} />
+		<link rel="alternate" hreflang="en" href={`${siteConfig.url}/en/`} />
+		<link rel="alternate" hreflang="x-default" href={`${siteConfig.url}/`} />
+		
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:site_name" content={siteConfig.name} />
+		
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+		
+		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+		
+		<!-- Scripts -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<meta name="description" content="Portfolio personal - Frontend Engineer" />
+		
+		<!-- Schema.org JSON-LD -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": siteConfig.name,
+			"jobTitle": "Software Architect",
+			"url": siteConfig.url,
+			"sameAs": [
+				siteConfig.social.github,
+				siteConfig.social.linkedin
+			]
+		})} />
 	</head>
 	<body>
 		<div class="cursor-trace"></div>
