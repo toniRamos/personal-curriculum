@@ -25,12 +25,15 @@ const videoStoreScreenshot = "/portfolio/images/projects/video-store-screenshot.
 					/>
 				</a>
 				<div class="project-content">
-					<h3>
+					<p class="project-overline">{t('projects.featured')}</p>
+					<h3 class="project-title">
 						<a href="https://github.com/antonioramosvibia/personal-curriculum" target="_blank" rel="noopener noreferrer">
 							{t('projects.portfolio.title')}
 						</a>
 					</h3>
-					<p class="project-description">{t('projects.portfolio.description')}</p>
+					<div class="project-description">
+						<p>{t('projects.portfolio.description')}</p>
+					</div>
 					<div class="project-technologies">
 						{t('projects.portfolio.tech').map((tech, index) => (
 							<span class="tech-tag" key={index}>{tech}</span>
@@ -47,12 +50,15 @@ const videoStoreScreenshot = "/portfolio/images/projects/video-store-screenshot.
 					/>
 				</a>
 				<div class="project-content">
-					<h3>
+					<p class="project-overline">{t('projects.personal')}</p>
+					<h3 class="project-title">
 						<a href="https://github.com/antonioramosvibia/video-store" target="_blank" rel="noopener noreferrer">
 							{t('projects.videoStore.title')}
 						</a>
 					</h3>
-					<p class="project-description">{t('projects.videoStore.description')}</p>
+					<div class="project-description">
+						<p>{t('projects.videoStore.description')}</p>
+					</div>
 					<div class="project-technologies">
 						{t('projects.videoStore.tech').map((tech, index) => (
 							<span class="tech-tag" key={index}>{tech}</span>
