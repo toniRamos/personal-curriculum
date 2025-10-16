@@ -106,7 +106,17 @@
     "title": "Some things I've built",
     "number": "03.",
     "featured": "Featured Project",
-    "personal": "Personal Project"
+    "personal": "Personal Project",
+    "portfolio": {
+      "title": "Personal Portfolio",
+      "description": "Professional multilingual portfolio built with Astro and TypeScript. Features optimized animations, clean architecture, Docker deployment, and complete internationalization system (ES/EN).",
+      "tech": ["Astro", "TypeScript", "CSS3", "Docker", "Anime.js", "i18n"]
+    },
+    "videoStore": {
+      "title": "Video Store Management",
+      "description": "Modern video club management system with comprehensive user auditing, film catalog features, and complete CRUD operations. Built with Domain-Driven Design (DDD) principles and featuring a complete audit trail system for compliance and tracking.",
+      "tech": ["Node.js", "React", "TypeScript", "MongoDB", "Redis", "Docker", "Express", "DDD"]
+    }
   },
   "contact": {
     "title": "What's Next?",

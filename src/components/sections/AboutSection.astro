@@ -1,0 +1,65 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Image path - using string literal for public folder asset
+const profilePicture = '/portfolio/images/profile/profile-picture.jpg';
+---
+
+<section id="about" class="about">
+	<div class="container">
+		<div class="section-header reveal-element">
+			<h2 class="section-title">
+				<span class="section-number">{t('about.number')}</span>
+				{t('about.title')}
+			</h2>
+		</div>
+		<div class="about-content reveal-element">
+			<div class="about-text">
+				<p>
+					{t('about.paragraphs.intro')}
+				</p>
+				<p>
+					{t('about.paragraphs.journey')}
+				</p>
+				<p class="expertise-intro">
+					{t('about.paragraphs.expertise')}
+				</p>
+				<p>
+					{t('about.paragraphs.skills')}
+				</p>
+				<p>
+					{t('about.paragraphs.experience')}
+				</p>
+				<p class="conclusion">
+					<strong>{t('about.paragraphs.conclusion')}</strong>
+				</p>
+				<ul class="skills-list">
+					<li>JavaScript (ES6+)</li>
+					<li>TypeScript</li>
+					<li>React</li>
+					<li>Node.js</li>
+					<li>Microservices</li>
+					<li>MongoDB</li>
+					<li>Redis</li>
+					<li>Docker</li>
+					<li>CI/CD</li>
+					<li>DDD</li>
+					<li>Clean Architecture</li>
+					<li>Hexagonal Architecture</li>
+				</ul>
+			</div>
+			<div class="about-image">
+				<div class="image-wrapper animate-profile">
+					<img 
+						src={profilePicture}
+						alt="Antonio Ramos - Arquitecto de Software"
+						loading="lazy"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

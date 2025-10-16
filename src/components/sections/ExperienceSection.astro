@@ -1,0 +1,41 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="experience" class="experience">
+	<div class="container">
+		<div class="section-header reveal-element">
+			<h2 class="section-title">
+				<span class="section-number">{t('experience.number')}</span>
+				{t('experience.title')}
+			</h2>
+		</div>
+		<div class="experience-content reveal-element">
+			{t('experience.jobs').map((job, index) => (
+				<div class="job-card reveal-stagger" key={index}>
+					<div class="job-content">
+						<h3>{job.title} <span class="company">@ {job.company}</span></h3>
+						<p class="job-duration">{job.duration}</p>
+						<p class="job-location">{job.location}</p>
+						<ul class="job-responsibilities">
+							{job.responsibilities.map((responsibility, respIndex) => (
+								<li key={respIndex}>{responsibility}</li>
+							))}
+						</ul>
+						<div class="job-technologies">
+							{job.technologies.map((tech, techIndex) => (
+								<span class="tech-tag" key={techIndex}>{tech}</span>
+							))}
+						</div>
+					</div>
+					<div class="job-highlight">
+						<div class="job-company-name">{job.company}</div>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

@@ -106,7 +106,17 @@
     "title": "Mis proyectos",
     "number": "03.",
     "featured": "Proyecto Destacado",
-    "personal": "Proyecto Personal"
+    "personal": "Proyecto Personal",
+    "portfolio": {
+      "title": "Portfolio Personal",
+      "description": "Portfolio profesional multiidioma construido con Astro y TypeScript. Implementa animaciones optimizadas, arquitectura limpia, deployment con Docker y sistema completo de internacionalización (ES/EN).",
+      "tech": ["Astro", "TypeScript", "CSS3", "Docker", "Anime.js", "i18n"]
+    },
+    "videoStore": {
+      "title": "Gestión de Videoclub",
+      "description": "Sistema moderno de gestión de videoclub con auditoría integral de usuarios, catálogo de películas y operaciones CRUD completas. Construido con principios de Domain-Driven Design (DDD) y sistema completo de auditoría para cumplimiento normativo y seguimiento de cambios.",
+      "tech": ["Node.js", "React", "TypeScript", "MongoDB", "Redis", "Docker", "Express", "DDD"]
+    }
   },
   "contact": {
     "title": "¿Qué sigue?",

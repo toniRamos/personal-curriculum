@@ -1,0 +1,65 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const portfolioScreenshot = "/portfolio/images/projects/portfolio-screenshot.png";
+const videoStoreScreenshot = "/portfolio/images/projects/video-store-screenshot.png";
+---
+
+<section id="projects" class="projects">
+	<div class="container">
+		<div class="section-header reveal-element">
+			<h2 class="section-title">
+				<span class="section-number">{t('projects.number')}</span>
+				{t('projects.title')}
+			</h2>
+		</div>
+		<div class="projects-grid">
+			<div class="project-card reveal-stagger">
+				<a href="https://github.com/antonioramosvibia/personal-curriculum" target="_blank" rel="noopener noreferrer" class="project-image">
+					<img 
+						src={portfolioScreenshot} 
+						alt={t('projects.portfolio.title')}
+					/>
+				</a>
+				<div class="project-content">
+					<h3>
+						<a href="https://github.com/antonioramosvibia/personal-curriculum" target="_blank" rel="noopener noreferrer">
+							{t('projects.portfolio.title')}
+						</a>
+					</h3>
+					<p class="project-description">{t('projects.portfolio.description')}</p>
+					<ul class="project-tech">
+						{t('projects.portfolio.tech').map((tech, index) => (
+							<li key={index}>{tech}</li>
+						))}
+					</ul>
+				</div>
+			</div>
+
+			<div class="project-card reveal-stagger">
+				<a href="https://github.com/antonioramosvibia/video-store" target="_blank" rel="noopener noreferrer" class="project-image">
+					<img 
+						src={videoStoreScreenshot} 
+						alt={t('projects.videoStore.title')}
+					/>
+				</a>
+				<div class="project-content">
+					<h3>
+						<a href="https://github.com/antonioramosvibia/video-store" target="_blank" rel="noopener noreferrer">
+							{t('projects.videoStore.title')}
+						</a>
+					</h3>
+					<p class="project-description">{t('projects.videoStore.description')}</p>
+					<ul class="project-tech">
+						{t('projects.videoStore.tech').map((tech, index) => (
+							<li key={index}>{tech}</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

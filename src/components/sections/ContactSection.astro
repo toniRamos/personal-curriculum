@@ -1,0 +1,22 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+import { siteConfig } from '../../config/site';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="contact" class="contact">
+	<div class="container">
+		<div class="section-header reveal-element">
+			<h2 class="section-title">
+				<span class="section-number">{t('contact.number')}</span>
+				{t('contact.title')}
+			</h2>
+		</div>
+		<div class="contact-content reveal-element">
+			<p class="contact-text">{t('contact.description')}</p>
+			<a href={`mailto:${siteConfig.email}`} class="cta-button">{t('contact.cta')}</a>
+		</div>
+	</div>
+</section>
