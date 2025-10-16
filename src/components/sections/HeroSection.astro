@@ -14,9 +14,61 @@ const t = useTranslations(lang);
 			<p class="hero-description">
 				{t('hero.description')}
 			</p>
+			
+			<!-- Stats Badges -->
+			<div class="hero-stats">
+				<div class="stat-badge">
+					<span class="stat-number">10+</span>
+					<span class="stat-label">{lang === 'es' ? 'Años de experiencia' : 'Years of experience'}</span>
+				</div>
+				<div class="stat-badge">
+					<span class="stat-number">5+</span>
+					<span class="stat-label">{lang === 'es' ? 'Equipos liderados' : 'Teams led'}</span>
+				</div>
+				<div class="stat-badge">
+					<span class="stat-number">100K+</span>
+					<span class="stat-label">{lang === 'es' ? 'Usuarios impactados' : 'Users impacted'}</span>
+				</div>
+			</div>
+
 			<div class="hero-cta">
 				<a href="#contact" class="cta-button">{t('hero.cta')}</a>
 			</div>
 		</div>
 	</div>
+	
+	<!-- Scroll Indicator -->
+	<div class="scroll-indicator">
+		<div class="mouse">
+			<div class="wheel"></div>
+		</div>
+		<div class="arrow">
+			<span></span>
+			<span></span>
+		</div>
+	</div>
 </section>
+
+<script define:vars={{ lang }}>
+	// Highlight keywords in description
+	document.addEventListener('DOMContentLoaded', () => {
+		const description = document.querySelector('.hero-description');
+		if (description && description.textContent) {
+			// Keywords based on language
+			const keywordsMap = {
+				es: ['DDD', 'código limpio', 'principios de código limpio', 'tecnologías modernas'],
+				en: ['DDD', 'clean code', 'clean code principles', 'modern technologies']
+			};
+			
+			const keywords = keywordsMap[lang] || keywordsMap.es;
+			let text = description.textContent;
+			
+			keywords.forEach(keyword => {
+				const regex = new RegExp(`(${keyword})`, 'gi');
+				text = text.replace(regex, '<span class="keyword-highlight">$1</span>');
+			});
+			
+			description.innerHTML = text;
+		}
+	});
+</script>
